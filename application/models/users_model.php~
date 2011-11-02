@@ -14,26 +14,15 @@ class Users_model extends CI_Model {
 		return $query->result();
 	}
 	
-	//adds the user data to database
 	function add_user($data)
 	{
 		$this->db->insert('users',$data);
 	}
 	
-	//deletes user by id
 	function delete_user($id)
 	{
 		$this->db->where('id',$id);
 		$this->db->delete('users');
-	}
-	
-	//display one user data
-	function display_a_user($id)
-	{
-		$query = $this->db->get_where('users', array('id'=> $id));
-		
-		return $query->result();
-		
 	}
 
 }

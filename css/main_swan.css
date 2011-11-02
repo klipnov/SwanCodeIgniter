@@ -38,6 +38,12 @@ body {
 	color:gray;
 }
 
+.swanTable {
+	text-align: center;
+	border-style: solid;
+	border-color: black;
+}
+
 #content {
 	background-color:white;
 	clear:both;

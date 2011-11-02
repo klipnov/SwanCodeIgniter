@@ -10,7 +10,7 @@ class Quiz extends CI_Controller {
 		
 		$this->load->view('swan_header');
 		$this->load->view('swan_menu',$data);
-		$this->load->view('swan_content',$data);
+		$this->load->view('quiz_content',$data);
 		$this->load->view('swan_footer');
 	}
 	
