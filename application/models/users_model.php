@@ -20,6 +20,13 @@ class Users_model extends CI_Model {
 		$this->db->insert('users',$data);
 	}
 	
+	//updates the user information
+	function update_user($id,$data)
+	{
+		$this->db->where('id',$id);
+		$this->db->update('users',$data);
+	}
+	
 	//deletes user by id
 	function delete_user($id)
 	{
