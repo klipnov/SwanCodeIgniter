@@ -1,0 +1,154 @@
+
+Theory101.css
+
+ 
+
+/*
+
+    Document   : theory101main
+
+    Created on : Aug 19, 2011, 11:20:52 PM
+
+    Author     : Qays
+
+    Description: Template for Theory 101 main page
+
+*/
+
+ 
+
+ 
+
+body {
+
+    margin: 0;
+
+    padding: 0;
+
+    font-family: 'Coustard',tahoma,sans-serif;
+
+    background-color: white;
+
+   
+
+}
+
+ 
+
+#wrapper{
+
+    width: 900px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    border-top-style: solid;
+
+    border-width: 15px;
+
+}
+
+ 
+
+#logo{
+
+ 
+
+}
+
+ 
+
+#menu{
+
+    border-top-style: solid;
+
+    border-width: 1px;
+
+    clear: both;
+
+}
+
+ 
+
+.imgpad {
+
+    padding-left: 15px;
+
+}
+
+ 
+
+#subContentMain{
+
+}
+
+ 
+
+#contentLeft {
+
+    float: left;
+
+}
+
+ 
+
+#contentRight{
+
+    font-size: 16px;
+
+    width: 400px;
+
+    float: right;
+
+}
+
+ 
+
+.subContent{
+
+    width: 300px;
+
+    float: left;
+
+    font-size: 12px;
+
+    text-align: center;
+
+}
+
+ 
+
+.subContent p{
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+ 
+
+.clear {
+
+    clear: both;
+
+}
+
+ 
+
+#footer{
+
+  color:white;
+
+  background-color: black;
+
+  padding: 10px;
+
+  text-align: right;
+
+  font-size: 12px;
+
+}
+
+ 

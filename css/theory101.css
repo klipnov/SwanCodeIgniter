@@ -1,0 +1,66 @@
+#logo {
+	background-color:white;
+}
+
+#login {
+	background-color:white;
+}
+
+#leftTopContent {
+	padding-top:20px;
+	text-align:justify;
+	padding-bottom:50px;
+}
+
+#rightTopContent {
+	padding-bottom:50px;
+}
+
+#register {
+
+}
+
+#leftBottomContent {
+	text-align:center;
+	background-color:#339A99;
+	//background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#339A99));
+}
+
+#middleBottomContent {
+	text-align:center;
+	background-color:#FFFFC0;
+	//background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#FFFFC0));
+}
+
+#rightBottomContent {
+	text-align:center;
+	background-color:#F38248;
+	//background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#F38248));
+}
+
+#footer {
+	background-color:black;
+	color:white;
+	text-align:right;
+	font-weight:bold;
+}
+
+.topLine {
+	border-style:solid;
+	border-top-width:10px;
+}
+
+.loginFont {
+	padding-top:5px;
+	padding-right:5px;
+}
+
+.homeLink {
+	padding-top:20px;
+}
+
+.link {
+	text-decoration:none;
+	color:0066CC;
+}
+

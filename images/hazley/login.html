@@ -1,0 +1,72 @@
+<html>
+
+    <head>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <title>Theory101</title>
+
+        <link rel="stylesheet" type="text/css" href="theory101css.css"/>
+
+        <link href='http://fonts.googleapis.com/css?family=Coustard' rel='stylesheet' type='text/css'>
+		
+        <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+        
+		<script type="text/javascript"> 
+		$(document).ready(function(){
+		$('.text_container').addClass("hidden");
+		$('.text_container').click(function() { var $this = $(this);
+		if ($this.hasClass("hidden")) { $(this).removeClass("hidden").addClass("visible");
+		} else { $(this).removeClass("visible").addClass("hidden"); } }); }); 
+		</script>
+
+    </head>
+    
+    <body>
+		
+    	<div id="wrapper">
+        <img src="images/logo1.png" />
+        <div id="home">
+        <a href="Theory101a.html"><b>Logout<b></a>
+                  
+        </div>
+        
+        <hr>
+        
+        <div id="menu">
+	        <div class="text_container">
+	        
+				<img src="images/lessons.png" height="30"/>
+	
+				<div><!--div that we want to hide-->
+				<ul>
+				<div id= "centre">				
+					<li class="lesson1"> <a href="test.html"><img class="imgpad" src="images/learn.gif" height="90"/><b>First Level</b></a> </li>
+					<li class="lesson1"> <a href="test.html"><img class="imgpad" src="images/learn.gif" height="90"/><b>Second Level</b></a> </li>
+					<li class="lesson1"> <a href="test.html"><img class="imgpad" src="images/learn.gif" height="90"/><b>Third Level</b></a> </li>
+				</div>
+				</ul>
+				<!--</div-->
+	
+				</div><!--end div_text_container-->
+	        
+	         </div>
+	     
+         
+	         <div class="clear">
+	         <img class="left"  src="images/assessment.png" height="30"/>
+	         </div>
+        
+       	
+       
+        
+        <div class="clear"></div>
+        </div>
+      
+      
+       	
+		
+                  
+	</body>
+    
+</html>

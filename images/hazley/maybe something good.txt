@@ -1,0 +1,10 @@
+<ul class="mainNav">
+				
+				<li title="Home" class="home "><a href="index.php?page=home" class="current">HOME</a></li>
+				<li title="Designs" class="design "><a href="designs.php?page=design" class=""> DESIGNS</a></li>
+				<li title="Portfolio" class="portfolio "><a href="portfolio.php?page=portfolio" class="">PORTFOLIO</a></li>
+				<li title="Weapons" class="weapons "><a href="weapons.php?page=weapon" class="">WEAPONS</a></li>
+				<li title="Downloads" class="downloads "><a href="downloads.php?page=download" class="">DOWNLOADS</a></li>
+				<li title="Touch Me" class="touch"><a href="touch-me.php?page=touch" class="">TOUCH ME</a></li>
+			</ul>
+		</nav>

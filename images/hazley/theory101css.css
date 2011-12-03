@@ -1,0 +1,162 @@
+Theory101.css
+
+body {
+
+    margin: 0;
+
+    padding: 0;
+
+    font-family: 'Coustard',tahoma,sans-serif;
+
+    background-color: white;
+
+}
+
+ 
+
+#wrapper{
+
+    width: 900px;
+
+    margin-left: auto;
+
+    margin-right: auto;
+
+    border-top-style: solid;
+
+    border-width: 15px;
+
+}
+
+ 
+
+#logo{
+
+ 
+
+}
+
+ 
+
+#menu{
+
+    float: left;
+
+    border-width: 1px;
+
+    clear: both;
+
+}
+
+#login{
+	float: right;
+	clear: both;
+	
+}
+
+.imgpad {
+
+    padding-left: 15px;
+    
+
+}
+
+ 
+
+#subContentMain{
+
+}
+
+ 
+
+#contentLeft {
+
+    float: left;
+
+}
+
+ 
+
+#contentRight{
+
+    font-size: 16px;
+
+    width: 400px;
+
+    float: right;
+
+}
+
+ 
+
+.subContent{
+
+    width: 300px;
+
+    float: left;
+
+    font-size: 12px;
+
+    text-align: center;
+
+}
+
+ 
+
+.subContent p{
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+ 
+
+.clear {
+
+    clear: both;
+
+}
+
+ 
+
+#footer{
+	
+    position:absolute;
+
+	bottom:0;
+	width:900px;
+
+	
+	  color:white;
+	
+	  background-color: black;
+	
+	  padding: 10px;
+	
+	  text-align: right;
+	
+	  font-size: 10px;
+
+}
+
+#home{
+	float: right;
+}
+
+.hidden>div {display:none;}
+.visible>div {display:block;}
+
+.lesson1{
+	float: left;
+	list-style-type: none;
+
+}
+.left{
+	float: left;
+}
+
+.centre{
+	text-align: centre;
+}

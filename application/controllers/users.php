@@ -9,10 +9,10 @@ class Users extends CI_Controller {
 		$data['main_links'] = $this->Swan_model->links();
 		$data['content'] = $this->Users_model->display_users();
 		
-		$this->load->view('swan_header');
-		$this->load->view('swan_menu',$data);
-		$this->load->view('users_content',$data);
-		$this->load->view('swan_footer');
+		$this->load->view('swan/swan_header');
+		$this->load->view('swan/swan_menu',$data);
+		$this->load->view('users/users_content',$data);
+		$this->load->view('swan/swan_footer');
 	}	
 	
 	//displays the form to add a user
@@ -22,10 +22,10 @@ class Users extends CI_Controller {
 		
 		$data['main_links'] = $this->Swan_model->links();		
 		
-		$this->load->view('swan_header');
-		$this->load->view('swan_menu',$data);
-		$this->load->view('add_form_content',$data);
-		$this->load->view('swan_footer');	
+		$this->load->view('swan/swan_header');
+		$this->load->view('swan/swan_menu',$data);
+		$this->load->view('users/add_form_content',$data);
+		$this->load->view('swan/swan_footer');	
 	}
 	
 	//function that adds a user to the database
@@ -84,10 +84,10 @@ class Users extends CI_Controller {
 		$data['main_links'] = $this->Swan_model->links();		
 		$data['user'] = $this->Users_model->display_a_user($id);
 		
-		$this->load->view('swan_header');
-		$this->load->view('swan_menu',$data);
-		$this->load->view('edit_user_content',$data);
-		$this->load->view('swan_footer');
+		$this->load->view('swan/swan_header');
+		$this->load->view('swan/swan_menu',$data);
+		$this->load->view('users/edit_user_content',$data);
+		$this->load->view('swan/swan_footer');
 	}
 
 }

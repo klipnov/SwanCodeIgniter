@@ -2,6 +2,41 @@
 	margin:0px;
 	padding:0px;
 	font-family: sans-serif;
+	font-size: 100%;
+}
+
+@font-face {
+	font-family: Oldsans;
+	src:url('OldSansBlack.ttf');
+}
+
+h3,th,.oldsans {
+	font-family:Oldsans;
+	font-size: 120%;
+}
+
+a {
+	text-decoration: none;
+	color:#696969;
+	font-weight:bold;	
+}
+
+a:hover {
+	color:#1E90FF;
+}
+
+.removelink {
+	color:#DC143C;
+	font-size:120%;
+}
+
+.addlink {
+	font-weight:normal;
+	font-size:75%;
+}
+
+th {
+	font-size:120%;
 }
 
 body {
@@ -20,6 +55,7 @@ body {
 	background-color:white;
 	padding-left:10px;
 	padding-right:10px;	
+	font-size: 120%;
 }
 
 .link {
@@ -32,6 +68,7 @@ body {
 	color:black;
 	font-weight:bold;
 	padding-right:20px;
+	font-family:Oldsans;
 }
 
 .link a:hover {
@@ -57,4 +94,14 @@ body {
 	background-color:black;
 	color:white;
 	text-align:right;
+	clear:both;
+}
+
+#pagesdiv1 {
+	float:left;
+	width:210px;
+}
+
+#pagesdiv2 {
+	float:left;
 }
