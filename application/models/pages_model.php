@@ -53,6 +53,14 @@ class Pages_model extends CI_Model {
 		return $query->result();
 	}
 	
+	//count lessons for the Quiz view
+	function count_lessons()
+	{
+		$query = $this->db->count_all('lesson');
+		
+		return $query;
+	}
+	
 	//display a lesson
 	function display_a_lesson($id)
 	{

@@ -77,7 +77,7 @@ $(document).ready(function(){
 		Please take a moment by registering with us, to start learning.
 		</p>
 		
-		<a href="#" id="registerLink" class="link"><b>Register Now!</b></a>
+		<a href="#" id="registerLink" class="link">Register Now!</a>
 		
 		<div id="register">
 		<form name="login" action="theory101/login" method="post">
