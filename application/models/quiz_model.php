@@ -18,4 +18,22 @@ class Quiz_model extends CI_Model {
 		return $query->result();
 	}
 	
+	function get_quiz_id($id)
+	{
+		$query = $this->db->get_where('quiz',array('id'=>$id));
+		
+		return $query->result();
+	}
+	
+	function update_quiz($id,$data)
+	{
+		//update the quiz where theres a same id
+		$this->db->where('id',$id);
+		$this->db->update('quiz',$data);
+	}
+	
+	function delete_quiz($id)
+	{
+		$this->db->delete('quiz',array('id'=>$id));
+	}
 }

@@ -13,7 +13,8 @@
 			<?php echo form_label('Chapter:','chapter'); ?>
 		</td>
 		<td>
-			<?php echo form_input('chapter'); ?>
+			<?php echo $chapter; ?>
+			<?php echo form_hidden('chapter',$chapter); ?>
 		</td>
 	</tr>
 	<tr>

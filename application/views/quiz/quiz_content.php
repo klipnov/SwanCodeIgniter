@@ -6,5 +6,4 @@
 	echo "<a href=" . site_url('quiz/select_chapter/') . "/$i" . " >Chapter $i</a><br>";
 	} ?>
 	<br/>
-	<a href="<?php echo site_url('quiz/display_add_quiz'); ?>" class="addLink" > Add a Question </a>
 </div>

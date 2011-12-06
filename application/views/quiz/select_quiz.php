@@ -6,9 +6,12 @@
 	<?php foreach($question as $item): ?>
 	<tr>
 	<td width="600"><?php echo $item->question; ?></td>
-	<td><?php echo anchor('/quiz/edit_quiz','edit'); ?></td>
-	<td><?php echo anchor('/quiz/remove_quiz','remove'); ?></td>
+	<td><a href="<?php echo site_url('/quiz/edit_quiz') . '/' . $item->id; ?>">Edit</a></td>
+	<td><a href="<?php echo site_url('/quiz/remove_quiz') . '/' . $item->id; ?>">Remove</a></td>
 	</tr>
 	<?php endforeach; ?>
 	</table>
+	<br/>
+		<a href="<?php echo site_url('quiz/display_add_quiz') . '/' . $chapter; ?>" class="addLink" > Add a Question </a>
+	
 </div>

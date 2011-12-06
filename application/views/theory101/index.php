@@ -6,8 +6,13 @@
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/text.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/960.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/theory101.css" />
-
+<link type="text/css" href="/SwanCodeIgniter/css/jquery/css/ui-lightness/jquery-ui-1.8.16.custom.css"/>
+<!--
 <script type="text/javascript" src="/SwanCodeIgniter/css/jquery-1.7.1.min.js"></script>
+-->
+
+<script type="text/javascript" src="/SwanCodeIgniter/css/jquery/js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="/SwanCodeIgniter/css/jquery/js/jquery-ui-1.8.16.custom.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
