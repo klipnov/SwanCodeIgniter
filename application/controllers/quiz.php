@@ -28,14 +28,24 @@ class Quiz extends CI_Controller {
 		$this->load->view('swan/swan_menu',$data);
 	}
 	
-	//edit this!!!!!!!!!!!!!!!!!!!!!!!!!
+	//creates a page/dialog box that confirms the action add,update and remove
+	public function confirm($title,$message,$link)
+	{
+		$data['title'] = $title;
+		$data['message'] = $message;
+		$data['link'] = $link;
+		
+		$this->load->view('swan/swan_confirm',$data);
+	}
+	
+
 	public function display_add_quiz($chapter)
 	{
 		$this->header();
 		
 		$data['chapter'] = $chapter;
 		
-		$this->load->view('quiz/add_quiz',$data);
+		$this->load->view('quiz/add_quiz',$data,'quiz');
 	
 	}
 	
@@ -84,8 +94,7 @@ class Quiz extends CI_Controller {
 		
 		$this->Quiz_model->update_quiz($id,$data);
 		
-		echo "Quiz has been updated" . "<br>";
-		echo anchor('quiz','return');
+		$this->confirm('Updated', 'Quiz has been updated','quiz');
 	}
 	
 	public function remove_quiz($id)
@@ -96,9 +105,7 @@ class Quiz extends CI_Controller {
 	
 	$this->Quiz_model->delete_quiz($id);
 	
-	echo "Quiz removed";
-	
-	echo anchor('quiz','return');
+		$this->confirm('Removed', 'Quiz has been removed','quiz');
 	}
 	
 	public function add_quiz()
@@ -116,7 +123,6 @@ class Quiz extends CI_Controller {
 		
 		$this->Quiz_model->add_quiz($data);
 		
-		echo "The quiz question has been added";	
-		echo anchor('/quiz','return');
+		$this->confirm('Added', 'Quiz has been added','quiz');
 	}
 }

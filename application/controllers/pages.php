@@ -1,8 +1,30 @@
 <?php
 class Pages extends CI_Controller {	
+
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('session');
+		$this->load->helper('url');
+		
+		if($this->session->userdata('logged_in') != TRUE)
+		{
+			redirect('login','refresh');
+		}
+	}
+	
+	public function user_logged()
+	{
+		if($this->session->userdata('logged_in') == false)
+		echo "User not logged in";
+		else
+		echo "User is logged";
+	}
 	
 	public function index ()
 	{
+		
+		
 		$this->load->model('Swan_model');
 		$this->load->model('Pages_model');
 		
@@ -58,8 +80,7 @@ class Pages extends CI_Controller {
 		
 		$this->Pages_model->add_page($data);
 		
-		echo "<h3>" . $data['title'] . " has been added" . "</h3>";
-		echo anchor('/pages','return');
+		$this->confirm('Added','Lesson has been added','pages');
 	}
 	
 	//udpates a page
@@ -74,8 +95,7 @@ class Pages extends CI_Controller {
 		
 		$this->Pages_model->update_page($id,$data);
 		
-		echo "<h3>" . $data['title'] . " has been updated" . "</h3>";
-		echo anchor('/pages','return');
+		$this->confirm('Updated','Lesson has been updated','pages');
 	}
 	
 	//preview a page in SWAN using display a page function in the pages model
@@ -102,8 +122,7 @@ class Pages extends CI_Controller {
 		
 		$this->Pages_model->remove_page($id);
 		
-		echo "<h3>Page removed</h3>";
-		echo anchor("/pages","return");
+		$this->confirm('Removed','Section has been removed','pages');
 	}
 	
 	/******************/
@@ -119,14 +138,6 @@ class Pages extends CI_Controller {
 		
 		$this->load->view('pages/pages_header');
 		$this->load->view('swan/swan_menu',$data);
-	}
-	
-	public function has_been_added($title,$postfix)
-	{
-		$this->load->helper('url');
-		
-		echo "<h3>" . $title . " has been " . $postfix;
-		echo anchor("/pages","return");
 	}
 	
 	public function display_add_lesson()
@@ -161,7 +172,7 @@ class Pages extends CI_Controller {
 		
 		$this->Pages_model->add_lesson($data);
 		
-		$this->has_been_added($data['title'],"added");
+		$this->confirm('Added','Lesson has been added','pages');
 	}
 	
 	public function display_lesson_info($id)
@@ -186,7 +197,7 @@ class Pages extends CI_Controller {
 		
 		$this->Pages_model->update_lesson($id,$data);
 		
-		$this->has_been_added($data['title'],"updated");
+		$this->confirm('Updated','Lesson has been updated','pages');
 	}
 	
 	public function remove_lesson($id)
@@ -196,8 +207,16 @@ class Pages extends CI_Controller {
 		
 		$this->Pages_model->remove_lesson($id);
 		
-		echo "lesson removed";
-		echo anchor('/pages','return');
+		$this->confirm('Removed','Lesson has been removed','pages');
+	}
+	
+		public function confirm($title,$message,$link)
+	{
+		$data['title'] = $title;
+		$data['message'] = $message;
+		$data['link'] = $link;
+		
+		$this->load->view('swan/swan_confirm',$data);
 	}
 		
 }

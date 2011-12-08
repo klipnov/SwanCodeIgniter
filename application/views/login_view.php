@@ -11,11 +11,11 @@
 
 <center><?php echo img('images/swanLogo.png'); ?></center>
 
-<?php echo form_open('/swan'); ?>
+<?php echo form_open('login/authenticate'); ?>
 
 
 <center><?php echo form_input('username'); ?></center><br>
-<center><?php echo form_input('password'); ?></center><br>
+<center><?php echo form_password('password'); ?></center><br>
 
 <center><?php echo form_submit('submit','Login'); ?></center>
 

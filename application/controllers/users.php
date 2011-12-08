@@ -1,6 +1,18 @@
 <?php
 class Users extends CI_Controller {	
 	
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->library('session');
+		$this->load->helper('url');
+		
+		if($this->session->userdata('logged_in') != TRUE)
+		{
+			redirect('login','refresh');
+		}
+	}
+	
 	public function index()
 	{
 		$this->load->model('Swan_model');
@@ -40,8 +52,7 @@ class Users extends CI_Controller {
 		$this->load->model('Users_model');
 		$this->Users_model->add_user($data);
 		
-		echo $data['username'] . " has been added" . "<br>";
-		echo anchor('users','return');
+		$this->confirm('Added','User has been added','users');
 	}
 	
 	//updates the user information in the database
@@ -60,8 +71,7 @@ class Users extends CI_Controller {
 		$this->load->model('Users_model');
 		$this->Users_model->update_user($id,$data);
 		
-		echo $this->input->post('username') . " Updated" . "<br>";
-		echo anchor('users','return');
+		$this->confirm('Updated','User has been updated','users');
 	}	
 	
 	//deletes a user from the database
@@ -72,8 +82,7 @@ class Users extends CI_Controller {
 		$this->load->model('Users_model');		
 		$this->Users_model->delete_user($id);		
 		
-		echo "User $id Deleted" . "<br>";
-		echo anchor('users','return');	
+		$this->confirm('Removed','User has been deleted','users');
 	}
 	
 	//displays the edit user form
@@ -88,6 +97,15 @@ class Users extends CI_Controller {
 		$this->load->view('swan/swan_menu',$data);
 		$this->load->view('users/edit_user_content',$data);
 		$this->load->view('swan/swan_footer');
+	}
+	
+	public function confirm($title,$message,$link)
+	{
+		$data['title'] = $title;
+		$data['message'] = $message;
+		$data['link'] = $link;
+		
+		$this->load->view('swan/swan_confirm',$data);
 	}
 
 }

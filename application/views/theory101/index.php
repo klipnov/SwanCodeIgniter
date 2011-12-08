@@ -43,7 +43,7 @@ $(document).ready(function(){
 	</div>
 	
 	<div id="login" class="grid_4 push_2">
-		<form name="login" action="theory101/login" method="post">
+		<form name="login" action="theory101/authenticate" method="post">
 		<br>
 		<table>
 		<tr>

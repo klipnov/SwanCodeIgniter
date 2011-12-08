@@ -1,9 +1,9 @@
 <!-- the main control panel -->
 
 <div class="grid_4 push_2">
-Hi, blabla what do you want to do today?
+Hi, <b><?php echo $username; ?></b> what do you want to do today?
 <br/>
-<?php echo anchor('theory101','logout'); ?>
+<?php echo anchor('theory101_logout','logout'); ?>
 </div>
 
 <div class="clear"> </div>
@@ -12,7 +12,7 @@ Hi, blabla what do you want to do today?
 	<p>Learn a lesson</p>
 	<div id="learn">
 	<?php foreach($learnLinks as $item): ?>
-	<a href="<?php echo site_url('theory101/lessons/'); ?><?php echo '/' . $item->id; ?>" class="link" >
+	<a href="<?php echo site_url('theory101_logged/lessons/'); ?><?php echo '/' . $item->id; ?>" class="link" >
 	<?php echo $item->title; ?></a><br>
 	<?php endforeach; ?>
 	</div>

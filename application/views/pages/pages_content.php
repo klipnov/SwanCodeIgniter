@@ -1,7 +1,7 @@
 <div id="content">
 	
 	<div id="pagesdiv1">
-	<h3>Main Pages</h3>
+	<h3>Sections</h3>
 	
 	<?php foreach($main_pages as $item): ?>
 	
@@ -15,7 +15,7 @@
 
 	<?php endforeach; ?>
 	
-	<?php echo anchor("pages/display_add_page","Add New Page",
+	<?php echo anchor("pages/display_add_page","Add New Section",
 					  array('class'=>'addlink')); ?>
 	<br>
 	<br>

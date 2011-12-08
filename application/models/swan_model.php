@@ -14,7 +14,9 @@ class Swan_model extends CI_Model {
 		$links = array('swan' => 'Home',
 		               'pages' => 'Pages',
 		               'quiz' => 'Quiz',
-		               'users' => 'Users');
+		               'users' => 'Users',
+		               'logout' => 'Logout'
+		               );
 		return $links;
 	}
 	
