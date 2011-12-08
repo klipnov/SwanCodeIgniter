@@ -22,12 +22,13 @@ Hi, <b><?php echo $username; ?></b> what do you want to do today?
 	<a href="#" id="assessLink"><img src="/SwanCodeIgniter/images/theory101/assess.png"></a>	
 	<p>After learning take a quiz to test yourself</p>
 	<div id="assess">
-	Quiz 1<br>
-	Quiz 2<br>
-	Quiz 3<br>
-	Quiz 4<br>
-	Quiz 5<br>
-	Quiz 6<br>
+	<?php for($i = 1; $i <= $total_quiz; $i++)
+			{
+				echo "<a href='".
+				 site_url('theory101_logged/quiz/')."/".$i.
+				"'class='link'>"."Quiz ". $i . "</a>"."<br/>";
+			}
+	?>
 	</div>
 </div>
 	

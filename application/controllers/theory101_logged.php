@@ -19,6 +19,8 @@ class Theory101_logged extends CI_Controller {
 		$this->load->model('Pages_model');
 		$data['learnLinks'] = $this->Pages_model->display_lesson();
 		$data['username'] = $this->session->userdata('username');
+		
+		$data['total_quiz'] = $this->Pages_model->count_lessons();
 	
 		$this->load->view('theory101/logged_header');
 		$this->load->view('theory101/logged_in',$data);
@@ -40,4 +42,49 @@ class Theory101_logged extends CI_Controller {
 		$this->load->view('theory101/footer_theory');
 	}
 	
+	public function quiz($chapter)
+	{
+		//use the chapter to group the quizzes together
+		$this->load->model('Quiz_model');
+		
+		$data['quiz'] = $this->Quiz_model->get_quiz_question($chapter);
+		
+		$this->load->view('theory101/header_theory');
+		$this->load->view('theory101/menu_theory');
+		$this->load->view('theory101/quiz/quiz_content',$data);
+		$this->load->view('theory101/footer_theory');
+	}
+	
+	public function process_quiz()
+	{
+		$correct = 0;
+	
+		for($i = 1;$i <= $this->input->post('count');$i++)
+		{	
+			 if($this->input->post("choose$i") == $this->input->post("answer$i"))
+			 {
+			  $correct++;
+			 }
+		}
+		
+		$percentage = ($correct/$i) * 100;
+	 	
+	 	$this->confirm('Result',"You scored $correct out of $i
+	 	 <br> $percentage% ",'theory101_logged');
+	}
+	
+	public function confirm($title,$message,$link)
+	{
+		$data['title'] = $title;
+		$data['message'] = $message;
+		$data['link'] = $link;
+		
+		$this->load->view('swan/swan_confirm',$data);
+	}
+	
 }
+
+
+
+
+

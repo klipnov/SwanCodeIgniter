@@ -50,9 +50,32 @@ class Theory101 extends CI_Controller {
 		else
 		{
 		echo "Wrong password";
-		}
+		}	
+	}
+	
+	public function register()
+	{
+		//load swan_users model to register user into database
+		$this->load->model('Users_model');
+		$this->load->helper('url');
 		
+		$data['username'] = $this->input->post('username');
+		$data['password'] = $this->input->post('password');
+		$data['email'] = $this->input->post('email');
+
 		
+		$this->Users_model->add_user($data);
+			
+		$this->confirm('Success','You can now login','theory101');		
+	}
+	
+	public function confirm($title,$message,$link)
+	{
+		$data['title'] = $title;
+		$data['message'] = $message;
+		$data['link'] = $link;
+		
+		$this->load->view('swan/swan_confirm',$data);
 	}
 	
 }

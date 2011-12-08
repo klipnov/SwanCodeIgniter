@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html>
 <head><title>SWAN Login</title>
 
@@ -5,22 +6,35 @@
 <?php $this->load->helper('url'); ?>
 <?php $this->load->helper('form'); ?>
 
+<style>
+#login{
+text-align:center;
+}
+
+#logo{
+padding-left:40px;
+text-align:center;
+}
+</style>
+
 </head>
 
 <body>
 
-<center><?php echo img('images/swanLogo.png'); ?></center>
-
+<div id="logo">
+<?php echo img('images/swanLogo.png'); ?>
+</div>
+<div id="login">
 <?php echo form_open('login/authenticate'); ?>
 
 
-<center><?php echo form_input('username'); ?></center><br>
-<center><?php echo form_password('password'); ?></center><br>
+<input type="text" name="username" required="required" placeholder="Username"/><br>
+<input type="password" name="username" required="required" placeholder="Password"/><br>
 
-<center><?php echo form_submit('submit','Login'); ?></center>
+<?php echo form_submit('submit','Login'); ?>
 
 <?php echo form_close(); ?>
-
+</div>
 </body>
 
 </html>

@@ -36,4 +36,5 @@ class Quiz_model extends CI_Model {
 	{
 		$this->db->delete('quiz',array('id'=>$id));
 	}
+	
 }

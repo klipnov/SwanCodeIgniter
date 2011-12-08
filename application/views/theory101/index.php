@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html>
 
 <head><title>Theory101</title>
@@ -85,20 +86,20 @@ $(document).ready(function(){
 		<a href="#" id="registerLink" class="link">Register Now!</a>
 		
 		<div id="register">
-		<form name="login" action="theory101/login" method="post">
+		<form name="login" action="theory101/register" method="post">
 		<br>
 		<table>
 		<tr>
 			<td class="loginFont"><b>Username </b></td>
-			<td><input type="text" name="username"/></td>
+			<td><input type="text" name="username" required="required"/></td>
 		</tr>
 		<tr>
 			<td class="loginFont"><b>Password </b></td>
-			<td><input type="password" name="password" /></td>
+			<td><input type="password" name="password" required="required" /></td>
 		</tr>
 		<tr>
 			<td class="loginFont"><b>E-Mail </b></td>
-			<td><input type="text" name="e-mail" /></td>
+			<td><input type="email" name="email" required="required" /></td>
 		</tr>
 		<tr><td></td>
 			<td><input type="submit" value="Register" /></td>
