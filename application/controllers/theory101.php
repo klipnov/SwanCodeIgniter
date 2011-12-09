@@ -25,32 +25,37 @@ class Theory101 extends CI_Controller {
 		//check for username
 		if($user_details == NULL)
 		{
-			echo "Username does not exists";
+		$this->confirm('Error','Username does not exists. Please register.','theory101');
 		}
 		else
 		{
 			foreach($user_details as $item):
+			$id = $item->id;
 			$db_password = $item->password;
 			endforeach;
+			
+			//check if password matches from the db
+			if($password == $db_password)
+			{
+		
+				$user_session = array(
+								'id' => $id,
+								'username' => $username,
+								'logged_in' => TRUE
+								);
+		
+				$this->session->set_userdata($user_session);
+		
+				redirect('theory101_logged','refresh');
+			}
+			else
+			{
+					$this->confirm('Error',
+					'Wrong password! Please try again.','theory101');
+			}
 		}
 		
-		//check if password matches from the db
-		if($password == $db_password)
-		{
-		
-			$user_session = array(
-							'username' => $username,
-							'logged_in' => TRUE
-							);
-		
-			$this->session->set_userdata($user_session);
-		
-			redirect('theory101_logged','refresh');
-		}
-		else
-		{
-		echo "Wrong password";
-		}	
+	
 	}
 	
 	public function register()

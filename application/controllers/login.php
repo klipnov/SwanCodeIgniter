@@ -25,7 +25,7 @@ class Login extends CI_Controller {
 		//check for username
 		if($user_details == NULL)
 		{
-			echo "Username does not exists";
+			$this->confirm('Error','Your username does not exist <br/> Please try again','theory101');
 		}
 		else
 		{
@@ -39,6 +39,7 @@ class Login extends CI_Controller {
 		{
 		
 			$user_session = array(
+							'id' => $id,
 							'username' => $username,
 							'logged_in' => TRUE
 							);
@@ -49,10 +50,17 @@ class Login extends CI_Controller {
 		}
 		else
 		{
-		echo "Wrong password";
-		}
+			$this->confirm('Error','You typed in the wrong password <br/> Please try again','theory101');
+		}				
+	}
+	
+	public function confirm($title,$message,$link)
+	{
+		$data['title'] = $title;
+		$data['message'] = $message;
+		$data['link'] = $link;
 		
-		
+		$this->load->view('swan/swan_confirm',$data);
 	}
 
 }

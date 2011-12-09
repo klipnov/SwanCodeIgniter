@@ -7,6 +7,7 @@
 	<?php $i = 0; ?>
 	
 	<?php foreach($quiz as $item): ?>
+	<?php echo form_hidden('chapter',$item->chapter); ?>
 	<table>
 	<tr>
 		<td><?php echo ++$i . "."; ?></td>

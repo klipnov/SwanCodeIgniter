@@ -37,4 +37,9 @@ class Quiz_model extends CI_Model {
 		$this->db->delete('quiz',array('id'=>$id));
 	}
 	
+	function add_marks($data)
+	{
+		$this->db->insert('quiz_marks',$data);
+	}
+	
 }

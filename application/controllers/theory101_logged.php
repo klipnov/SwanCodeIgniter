@@ -68,6 +68,18 @@ class Theory101_logged extends CI_Controller {
 		}
 		
 		$percentage = ($correct/$i) * 100;
+		
+		$this->load->model('Quiz_model');
+		
+		$data = array(
+				'user_id' => $this->session->userdata('id'),
+				'quiz_chapter' => $this->input->post('chapter'),
+				'total_question' => $i,
+				'marks' => $correct,
+				'percentage' => $percentage
+				);
+		
+		$this->Quiz_model->add_marks($data);
 	 	
 	 	$this->confirm('Result',"You scored $correct out of $i
 	 	 <br> $percentage% ",'theory101_logged');
