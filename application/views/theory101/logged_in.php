@@ -1,5 +1,6 @@
 <!-- the main control panel -->
 
+<!-- LEARN -->
 <div class="grid_4 push_2">
 Hi, <b><?php echo $username; ?></b> what do you want to do today?
 <br/>
@@ -17,7 +18,8 @@ Hi, <b><?php echo $username; ?></b> what do you want to do today?
 	<?php endforeach; ?>
 	</div>
 </div>
-	
+
+<!--ASSESS-->
 <div id="middleBottomContent" class="grid_4">
 	<a href="#" id="assessLink"><img src="/SwanCodeIgniter/images/theory101/assess.png"></a>	
 	<p>After learning take a quiz to test yourself</p>
@@ -31,14 +33,18 @@ Hi, <b><?php echo $username; ?></b> what do you want to do today?
 	?>
 	</div>
 </div>
-	
+<!--TRACK-->
 <div id="rightBottomContent" class="grid_4">
 	<a href="#" id="trackLink"><img src="/SwanCodeIgniter/images/theory101/track.png"></a>
 	<p>Track your progress</p>
 	<div id="track">
-	Your Rank: Amateur<br>
-	Last Quiz: 68% Quiz 3<br>
-	
+	Your Rank:
+	<b><?php echo $rank; ?></b><br/>
+	Your last quiz: 
+	<?php foreach($last_quiz as $item): ?>
+	<b><?php echo $item->percentage . "%"; ?>
+	<?php echo " Chapter " . $item->quiz_chapter; ?></b>
+	<?php endforeach; ?>
 	
 	</div>
 </div>

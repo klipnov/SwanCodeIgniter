@@ -17,10 +17,57 @@ class Theory101_logged extends CI_Controller {
 	{
 		//get topic of the chapters and the id
 		$this->load->model('Pages_model');
+		$this->load->model('Quiz_model');
+		
 		$data['learnLinks'] = $this->Pages_model->display_lesson();
 		$data['username'] = $this->session->userdata('username');
 		
 		$data['total_quiz'] = $this->Pages_model->count_lessons();
+		
+		/***TRACK****/
+		//get user last quiz
+		$data['last_quiz'] = $this->Quiz_model->get_last_quiz(
+												$this->session->userdata('id') );
+		
+		//give a user their rank based on:
+		//->highest percentage of each quiz taken by user divided by total number of quiz
+		$total=0;
+		
+		for($i=1;$i <= $data['total_quiz']; $i++)
+		{
+			$percentage = $this->Quiz_model->get_highest_percentage(
+												$this->session->userdata('id'),
+												$i);
+			foreach($percentage as $item)
+			{
+				$number = $item->percentage;
+			}
+			
+			$total += $number . "<br>";
+		}
+		
+		$rank_num = $total/$data['total_quiz'];
+		
+		if($rank_num < 15)
+		{
+			$rank = "Newbie";
+		}
+		else if ($rank >= 15 && $rank <=40)
+		{
+			$rank = "Beginner";
+		}
+		else if ($rank >= 30 && $rank <=70)
+		{
+			$rank = "Intermediate";
+		}
+		else
+		{
+			$rank = "Master";
+		}  
+		
+		$data['rank'] = $rank;
+		
+		/*****END OF TRACK*****/
 	
 		$this->load->view('theory101/logged_header');
 		$this->load->view('theory101/logged_in',$data);
