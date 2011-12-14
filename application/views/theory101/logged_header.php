@@ -2,6 +2,7 @@
 
 <head><title>Theory101</title>
 
+<link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/reset.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/text.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/960.css" />

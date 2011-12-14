@@ -48,6 +48,9 @@ class Theory101_logged extends CI_Controller {
 		
 		$rank_num = $total/$data['total_quiz'];
 		
+		//give a rank according to the total percentage marks
+		$rank = "";
+		
 		if($rank_num < 15)
 		{
 			$rank = "Newbie";
@@ -66,6 +69,18 @@ class Theory101_logged extends CI_Controller {
 		}  
 		
 		$data['rank'] = $rank;
+		$data['total_percentage'] = $rank_num;
+		
+		//enable users to post a lesson if they have master rank
+		
+		if($rank == "Master")
+		{
+			$data['post_enabled'] = TRUE;
+		}
+		else
+		{
+			$data['post_enabled'] = FALSE;
+		}
 		
 		/*****END OF TRACK*****/
 	
@@ -139,6 +154,11 @@ class Theory101_logged extends CI_Controller {
 		$data['link'] = $link;
 		
 		$this->load->view('swan/swan_confirm',$data);
+	}
+	
+	public function post_lesson()
+	{
+	//post a lesson for MASTER ranks
 	}
 	
 }

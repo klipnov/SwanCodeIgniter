@@ -3,30 +3,32 @@
 
 <head><title>Theory101</title>
 
+<link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/reset.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/text.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/960.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/theory101.css" />
-<link type="text/css" href="/SwanCodeIgniter/css/jquery/css/ui-lightness/jquery-ui-1.8.16.custom.css"/>
-<!--
-<script type="text/javascript" src="/SwanCodeIgniter/css/jquery-1.7.1.min.js"></script>
--->
+<script src="/SwanCodeIgniter/css/jquery/js/jquery-1.6.2.min.js"></script>
+<script src="/SwanCodeIgniter/css/jquery/js/jquery-ui-1.8.16.custom.min.js"></script>
 
-<script type="text/javascript" src="/SwanCodeIgniter/css/jquery/js/jquery-1.6.2.min.js"></script>
-<script type="text/javascript" src="/SwanCodeIgniter/css/jquery/js/jquery-ui-1.8.16.custom.min.js"></script>
+<link type="text/css" href="/SwanCodeIgniter/css/jquery/css/smoothness/jquery-ui-1.8.16.custom.css" rel="Stylesheet" />	
 
-<script type="text/javascript">
+<script>
 $(document).ready(function(){
 
-    $("#register").hide();
-
-  $("#registerLink").click(function(){
-    $("#register").toggle("slow");
-  });
-  
+	$( "#tabs" ).tabs();
+  	
+  	$(function(){
+    $('.fadein img:gt(0)').hide();
+    setInterval(function(){
+      $('.fadein :first-child').fadeOut()
+         .next('img').fadeIn()
+         .end().appendTo('.fadein');}, 
+      3000);
+	});
+  	
 });
 </script>
-
 
 </head>
 
@@ -49,11 +51,11 @@ $(document).ready(function(){
 		<table>
 		<tr>
 			<td class="loginFont"><b>Username </b></td>
-			<td><input type="text" name="username"/></td>
+			<td><input type="text" name="username" required="required" /></td>
 		</tr>
 		<tr>
 			<td class="loginFont"><b>Password </b></td>
-			<td><input type="password" name="password" /></td>
+			<td><input type="password" name="password" required="required" /></td>
 			<td><input type="submit" value="Login" /></td>
 		</tr>
 		</table>
@@ -69,10 +71,13 @@ $(document).ready(function(){
 	<!-- Left and Right Top Content -->
 	<div class="clear"></div>
 	<div id="rightTopContent" class="grid_6">
-		<img src="/SwanCodeIgniter/images/theory101/display.gif" />
-	</div>
-	
-	<div id="leftTopContent" class="grid_5 push_1">
+ <div id="tabs">
+	<ul>
+		<li><a href="#tabs-1"><b>Welcome</b></a></li>
+		<li><a href="#tabs-2"><b>Register</b></a></li>
+		<li><a href="#tabs-3"><b>Learn More</b></a></li>
+	</ul>
+	<div id="tabs-1">
 		<h2>Learn Music Theory!</h2>
 		<p>Theory 101 is a site to learn music theory. This site gives lessons
 		that are fun to learn. Learn with videos and interactive elements.
@@ -82,10 +87,13 @@ $(document).ready(function(){
 		know what topic that can be improved and topics that you already mastered.
 		Please take a moment by registering with us, to start learning.
 		</p>
+	</div>
+	<div id="tabs-2">
 		
-		<a href="#" id="registerLink" class="link">Register Now!</a>
+		<h3>Register with us!</h3>
 		
-		<div id="register">
+		<p>You can start learning immediately after the registration.</p>
+	
 		<form name="login" action="theory101/register" method="post">
 		<br>
 		<table>
@@ -106,25 +114,28 @@ $(document).ready(function(){
 		</tr>
 		</table>
 		</form>
+	
+	</div>
+	<div id="tabs-3">
+		<b>LEARN.ASSESS.TRACK</b>
+		<p> This site has 3 components to it. First is the lessons. This is where you learn
+			music theory. Second is Asessment. You can take the quiz here. Theres a quiz for 
+			every chapter. the third component is Track. Track shows you your statistics. The
+			higher you score in the quiz, higher your rank. There are 4 ranks.
+			Newbie,beginner,intermediate, and master. If you achieve master you can post your 
+			own lessons.
+		</p>
+	</div>
+</div>
+
+</div>
+	
+	<div id="leftTopContent" class="grid_6">
+		<div class="fadein">
+			<img src="/SwanCodeIgniter/images/theory101/rainbow.jpg"/>
+			<img src="/SwanCodeIgniter/images/theory101/SheetMusic.jpg"/>
+			<img src="/SwanCodeIgniter/images/theory101/guitar.jpg"/>		
 		</div>
-		
-	</div>
-	
-	<!-- Left,Middle,Right bottom content -->
-	<div class="clear"> </div>
-	<div id="leftBottomContent" class="grid_4">
-		<img src="/SwanCodeIgniter/images/theory101/learn.png">
-		<p>Learn a lesson</p>
-	</div>
-	
-	<div id="middleBottomContent" class="grid_4">
-		<img src="/SwanCodeIgniter/images/theory101/assess.png">	
-		<p>After learning take a quiz to test yourself</p>
-	</div>
-	
-	<div id="rightBottomContent" class="grid_4">
-		<img src="/SwanCodeIgniter/images/theory101/track.png">
-		<p>Track your progress</p>
 	</div>
 	
 	<!-- Footer -->
@@ -134,7 +145,6 @@ $(document).ready(function(){
 	</div>
 	
 </div>
-
 
 </body>
 

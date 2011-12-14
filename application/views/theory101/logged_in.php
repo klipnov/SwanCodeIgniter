@@ -4,7 +4,7 @@
 <div class="grid_4 push_2">
 Hi, <b><?php echo $username; ?></b> what do you want to do today?
 <br/>
-<?php echo anchor('theory101_logout','logout'); ?>
+<?php echo anchor('theory101_logout','logout',"class='link'"); ?>
 </div>
 
 <div class="clear"> </div>
@@ -40,6 +40,16 @@ Hi, <b><?php echo $username; ?></b> what do you want to do today?
 	<div id="track">
 	Your Rank:
 	<b><?php echo $rank; ?></b><br/>
+	
+	<?php if($post_enabled == TRUE)
+		  {
+		  	echo "<a href='#' class='link'> POST A LESSON </a><br/>";
+		  }
+	?>
+	
+	Total Progress:
+	<b><?php echo $total_percentage ?>%</b><br/>
+	
 	Your last quiz: 
 	<?php foreach($last_quiz as $item): ?>
 	<b><?php echo $item->percentage . "%"; ?>
