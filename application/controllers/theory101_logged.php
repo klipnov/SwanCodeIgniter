@@ -93,13 +93,16 @@ class Theory101_logged extends CI_Controller {
 	{
 		//load pages.lesson model
 		$this->load->model('Pages_model');
-	
+		$this->load->model('Quiz_model');
+		
 		//load lessons into a variable
 		$data['lesson'] = $this->Pages_model->display_a_lesson($id);
 	
+		$links['learnLinks'] = $this->Pages_model->display_lesson();
+		$links['total_quiz'] = $this->Pages_model->count_lessons();
 		
 		$this->load->view('theory101/header_theory');
-		$this->load->view('theory101/menu_theory');
+		$this->load->view('theory101/menu_theory',$links);
 		$this->load->view('theory101/lessons/lesson_content',$data);
 		$this->load->view('theory101/footer_theory');
 	}
@@ -120,8 +123,10 @@ class Theory101_logged extends CI_Controller {
 	public function process_quiz()
 	{
 		$correct = 0;
+		
+		$total_question = $this->input->post('count');
 	
-		for($i = 1;$i <= $this->input->post('count');$i++)
+		for($i = 1;$i <= $total_question;$i++)
 		{	
 			 if($this->input->post("choose$i") == $this->input->post("answer$i"))
 			 {
@@ -129,21 +134,21 @@ class Theory101_logged extends CI_Controller {
 			 }
 		}
 		
-		$percentage = ($correct/$i) * 100;
+		$percentage = ($correct/$total_question) * 100;
 		
 		$this->load->model('Quiz_model');
 		
 		$data = array(
 				'user_id' => $this->session->userdata('id'),
 				'quiz_chapter' => $this->input->post('chapter'),
-				'total_question' => $i,
+				'total_question' => $total_question,
 				'marks' => $correct,
 				'percentage' => $percentage
 				);
 		
 		$this->Quiz_model->add_marks($data);
 	 	
-	 	$this->confirm('Result',"You scored $correct out of $i
+	 	$this->confirm('Result',"You scored $correct out of $total_question
 	 	 <br> $percentage% ",'theory101_logged');
 	}
 	
@@ -159,8 +164,19 @@ class Theory101_logged extends CI_Controller {
 	public function post_lesson()
 	{
 	//post a lesson for MASTER ranks
+	
 	}
 	
+	public function post_lesson_form()
+	{
+	//display the add lesson form
+	
+	}
+	
+	public function display_posted_lesson()
+	{
+	//display lessons that the user posted
+	}
 }
 
 
