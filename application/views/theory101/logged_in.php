@@ -2,15 +2,16 @@
 
 <!-- LEARN -->
 <div class="grid_4 push_2">
-Hi, <b><?php echo $username; ?></b> what do you want to do today?
+Hi <b><?php echo $username; ?></b>, what do you want to do today?
 <br/>
 <?php echo anchor('theory101_logout','logout',"class='link'"); ?>
 </div>
 
 <div class="clear"> </div>
-<div id="leftBottomContent" class="grid_4">
-	<a href="#" id="learnLink"><img src="/SwanCodeIgniter/images/theory101/learn.png"></a>
-	<p>Learn a lesson</p>
+<div id="leftBottomContent" class="grid_2">
+	<!--<a href="#" id="learnLink"><img src="/SwanCodeIgniter/images/theory101/learn.png"></a>
+	<p>Learn a lesson</p>-->
+	<h3>Lessons</h3>
 	<div id="learn">
 	<?php foreach($learnLinks as $item): ?>
 	<a href="<?php echo site_url('theory101_logged/lessons/'); ?><?php echo '/' . $item->id; ?>" class="link" >
@@ -20,9 +21,10 @@ Hi, <b><?php echo $username; ?></b> what do you want to do today?
 </div>
 
 <!--ASSESS-->
-<div id="middleBottomContent" class="grid_4">
-	<a href="#" id="assessLink"><img src="/SwanCodeIgniter/images/theory101/assess.png"></a>	
-	<p>After learning take a quiz to test yourself</p>
+<div id="middleBottomContent" class="grid_2">
+	<!--<a href="#" id="assessLink"><img src="/SwanCodeIgniter/images/theory101/assess.png"></a>	
+	<p>After learning take a quiz to test yourself</p>-->
+	<h3>Quiz</h3>
 	<div id="assess">
 	<?php for($i = 1; $i <= $total_quiz; $i++)
 			{
@@ -35,17 +37,11 @@ Hi, <b><?php echo $username; ?></b> what do you want to do today?
 </div>
 <!--TRACK-->
 <div id="rightBottomContent" class="grid_4">
-	<a href="#" id="trackLink"><img src="/SwanCodeIgniter/images/theory101/track.png"></a>
-	<p>Track your progress</p>
+<!--<a href="#" id="trackLink"><img src="/SwanCodeIgniter/images/theory101/track.png"></a>
+	<p>Track your progress</p>-->
 	<div id="track">
 	Your Rank:
 	<b><?php echo $rank; ?></b><br/>
-	
-	<?php if($post_enabled == TRUE)
-		  {
-		  	echo "<a href='#' class='link'> POST A LESSON </a><br/>";
-		  }
-	?>
 	
 	Total Progress:
 	<b><?php echo $total_percentage ?>%</b><br/>
@@ -55,6 +51,14 @@ Hi, <b><?php echo $username; ?></b> what do you want to do today?
 	<b><?php echo $item->percentage . "%"; ?>
 	<?php echo " Chapter " . $item->quiz_chapter; ?></b>
 	<?php endforeach; ?>
-	
+	<br/><br/>
+
+	<?php if($post_enabled == TRUE)
+		  {
+		  	echo "<a href='#' class='link'> Post a Lesson </a><br/>";
+		  }
+	?>
+	<a href="#" class="link">View Quiz History</a><br/>
+	<a href="#" class="link">Suggestion</a>
 	</div>
 </div>

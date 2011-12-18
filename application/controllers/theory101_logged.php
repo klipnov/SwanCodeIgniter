@@ -51,15 +51,15 @@ class Theory101_logged extends CI_Controller {
 		//give a rank according to the total percentage marks
 		$rank = "";
 		
-		if($rank_num < 15)
+		if($rank_num < 15.00)
 		{
 			$rank = "Newbie";
 		}
-		else if ($rank >= 15 && $rank <=40)
+		else if ($rank_num >= 15.00 && $rank_num <=40.00)
 		{
 			$rank = "Beginner";
 		}
-		else if ($rank >= 30 && $rank <=70)
+		else if ($rank_num >= 30.00 && $rank_num <=70.00)
 		{
 			$rank = "Intermediate";
 		}
@@ -111,11 +111,15 @@ class Theory101_logged extends CI_Controller {
 	{
 		//use the chapter to group the quizzes together
 		$this->load->model('Quiz_model');
+		$this->load->model('Pages_model');
 		
 		$data['quiz'] = $this->Quiz_model->get_quiz_question($chapter);
 		
+		$links['learnLinks'] = $this->Pages_model->display_lesson();
+		$links['total_quiz'] = $this->Pages_model->count_lessons();
+		
 		$this->load->view('theory101/header_theory');
-		$this->load->view('theory101/menu_theory');
+		$this->load->view('theory101/menu_theory',$links);
 		$this->load->view('theory101/quiz/quiz_content',$data);
 		$this->load->view('theory101/footer_theory');
 	}

@@ -28,20 +28,31 @@ font-family: 'Cantarell', sans-serif;
 
 #leftBottomContent {
 	text-align:center;
-	background-color:#339A99;
+	background-color:white;
 	//background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#339A99));
+	border-style:solid solid none solid;
+	border-width:1px;
+	border-color:#C0C0C0;
 }
 
 #middleBottomContent {
 	text-align:center;
-	background-color:#FFFFC0;
+	background-color:white;
 	//background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#FFFFC0));
+	border-style:solid solid none solid;
+	border-width:1px;
+	border-color:#C0C0C0;
 }
 
 #rightBottomContent {
-	text-align:center;
-	background-color:#F38248;
+	padding-top:10px;
+	padding-left:10px;
+	//text-align:left;
+	background-color:white;
 	//background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#F38248));
+	border-style:solid none none solid;
+	border-width:1px;
+	border-color:#C0C0C0;
 }
 
 #footer {
@@ -49,6 +60,7 @@ font-family: 'Cantarell', sans-serif;
 	color:white;
 	text-align:right;
 	font-weight:bold;
+	margin-top:10px;
 }
 
 .topLine {

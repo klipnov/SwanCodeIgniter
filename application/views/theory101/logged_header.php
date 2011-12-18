@@ -13,7 +13,7 @@
 <?php $this->load->helper('html'); ?>
 <?php $this->load->helper('url'); ?>
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
 $(document).ready(function(){
 
     $("#learn").hide();
@@ -42,7 +42,7 @@ $(document).ready(function(){
   });
   
 });
-</script>
+</script>-->
 
 
 </head>
@@ -57,5 +57,6 @@ $(document).ready(function(){
 	<!-- Theory101 Logo and the login form -->
 	<div class="clear"></div>
 	<div id="logo" class="grid_6">
-		<img src="/SwanCodeIgniter/images/theory101/logo1.png"/>	
+		<img src="/SwanCodeIgniter/images/theory101/logo1.png"/>
+		<img src="/SwanCodeIgniter/images/theory101/home2.png"/>	
 	</div>
