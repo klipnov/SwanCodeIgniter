@@ -1,5 +1,5 @@
 * {
-font-family: 'Cantarell', sans-serif;
+font-family: 'Open Sans', sans-serif;
 }
 
 #logo {
@@ -26,7 +26,7 @@ font-family: 'Cantarell', sans-serif;
 	padding-bottom:0px;
 }
 
-#leftBottomContent {
+#learnCol {
 	text-align:center;
 	background-color:white;
 	//background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#339A99));
@@ -35,7 +35,7 @@ font-family: 'Cantarell', sans-serif;
 	border-color:#C0C0C0;
 }
 
-#middleBottomContent {
+#videoCol {
 	text-align:center;
 	background-color:white;
 	//background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#FFFFC0));
@@ -44,7 +44,18 @@ font-family: 'Cantarell', sans-serif;
 	border-color:#C0C0C0;
 }
 
-#rightBottomContent {
+#quizCol {
+	text-align:center;
+	background-color:white;
+	//background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#FFFFC0));
+	border-style:solid solid none solid;
+	border-width:1px;
+	border-color:#C0C0C0;
+}
+
+
+
+#trackCol {
 	padding-top:10px;
 	padding-left:10px;
 	//text-align:left;

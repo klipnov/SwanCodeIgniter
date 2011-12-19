@@ -8,7 +8,7 @@ Hi <b><?php echo $username; ?></b>, what do you want to do today?
 </div>
 
 <div class="clear"> </div>
-<div id="leftBottomContent" class="grid_2">
+<div id="learnCol" class="grid_2">
 	<!--<a href="#" id="learnLink"><img src="/SwanCodeIgniter/images/theory101/learn.png"></a>
 	<p>Learn a lesson</p>-->
 	<h3>Lessons</h3>
@@ -20,8 +20,18 @@ Hi <b><?php echo $username; ?></b>, what do you want to do today?
 	</div>
 </div>
 
+<!--VIDEO-->
+<div id="videoCol" class="grid_2">
+	<h3>Video</h3>
+	<a href="#" class="link">Video One</a><br/>
+	<a href="#" class="link">Video Two</a><br/>
+	<a href="#" class="link">Video Three</a><br/>
+	<a href="#" class="link">Video Four</a><br/>
+	<a href="#" class="link">Video Five</a><br/>
+</div>
+
 <!--ASSESS-->
-<div id="middleBottomContent" class="grid_2">
+<div id="quizCol" class="grid_2">
 	<!--<a href="#" id="assessLink"><img src="/SwanCodeIgniter/images/theory101/assess.png"></a>	
 	<p>After learning take a quiz to test yourself</p>-->
 	<h3>Quiz</h3>
@@ -35,8 +45,9 @@ Hi <b><?php echo $username; ?></b>, what do you want to do today?
 	?>
 	</div>
 </div>
+
 <!--TRACK-->
-<div id="rightBottomContent" class="grid_4">
+<div id="trackCol" class="grid_5">
 <!--<a href="#" id="trackLink"><img src="/SwanCodeIgniter/images/theory101/track.png"></a>
 	<p>Track your progress</p>-->
 	<div id="track">

@@ -2,7 +2,8 @@
 
 <head><title>Theory101</title>
 
-<link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/reset.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/text.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/960.css" />
@@ -58,5 +59,5 @@ $(document).ready(function(){
 	<div class="clear"></div>
 	<div id="logo" class="grid_6">
 		<img src="/SwanCodeIgniter/images/theory101/logo1.png"/>
-		<img src="/SwanCodeIgniter/images/theory101/home2.png"/>	
+		<img src="/SwanCodeIgniter/images/theory101/home2.png" height='35'/>	
 	</div>

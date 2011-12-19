@@ -29,7 +29,7 @@ text-align:center;
 
 
 <input type="text" name="username" required="required" placeholder="Username"/><br>
-<input type="password" name="username" required="required" placeholder="Password"/><br>
+<input type="password" name="password" required="required" placeholder="Password"/><br>
 
 <?php echo form_submit('submit','Login'); ?>
 
