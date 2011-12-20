@@ -2,12 +2,20 @@
 font-family: 'Open Sans', sans-serif;
 }
 
+/*h3 {
+font-family: 'Passion One', cursive;
+}*/
+
 #logo {
 	background-color:white;
 }
 
 #login {
 	background-color:white;
+}
+
+#menu {
+	//background-color:black;
 }
 
 #leftTopContent {

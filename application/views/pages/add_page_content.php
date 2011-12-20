@@ -2,10 +2,10 @@
 
 <?php $this->load->helper('form'); ?>
 	
-<h3>Add A New Page</h3>
+<h3>Add A New Video</h3>
 <br>
 
-<?php echo form_open('pages/add_page'); ?>
+<?php echo form_open('pages/add_video'); ?>
 
 <table id="addForm">
 	<tr>

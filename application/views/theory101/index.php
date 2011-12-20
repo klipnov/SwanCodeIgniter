@@ -4,7 +4,7 @@
 <head><title>Theory101</title>
 
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
+<link href='http://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/reset.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/text.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/960.css" />
@@ -79,7 +79,7 @@ $(document).ready(function(){
 		<li><a href="#tabs-3"><b>Learn More</b></a></li>
 	</ul>
 	<div id="tabs-1">
-		<h2>Learn Music Theory!</h2>
+		<h3>Learn Music Theory!</h3>
 		<p>Theory 101 is a site to learn music theory. This site gives lessons
 		that are fun to learn. Learn with videos and interactive elements.
 		If you're done learning. Take a test, you will be tested according to
@@ -118,7 +118,7 @@ $(document).ready(function(){
 	
 	</div>
 	<div id="tabs-3">
-		<b>LEARN.ASSESS.TRACK</b>
+		<h3>LEARN.ASSESS.TRACK</h3>
 		<p> This site has 3 components to it. First is the lessons. This is where you learn
 			music theory. Second is Asessment. You can take the quiz here. Theres a quiz for 
 			every chapter. the third component is Track. Track shows you your statistics. The

@@ -23,11 +23,12 @@ Hi <b><?php echo $username; ?></b>, what do you want to do today?
 <!--VIDEO-->
 <div id="videoCol" class="grid_2">
 	<h3>Video</h3>
-	<a href="#" class="link">Video One</a><br/>
-	<a href="#" class="link">Video Two</a><br/>
-	<a href="#" class="link">Video Three</a><br/>
-	<a href="#" class="link">Video Four</a><br/>
-	<a href="#" class="link">Video Five</a><br/>
+	<div id="learn">
+	<?php foreach($videoLinks as $item): ?>
+	<a href="<?php echo site_url('theory101_logged/video/'); ?><?php echo '/' . $item->id; ?>" class="link" >
+	<?php echo $item->title; ?></a><br>
+	<?php endforeach; ?>
+	</div>
 </div>
 
 <!--ASSESS-->

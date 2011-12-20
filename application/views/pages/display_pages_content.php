@@ -1,11 +1,11 @@
 <div id="content">
 
-<h3> Edit a Page </h3>
+<h3> Edit a Video </h3>
 <br>
 
 <?php $this->load->helper('form'); ?>
 
-<?php echo form_open('pages/update_page'); ?>
+<?php echo form_open('pages/update_video'); ?>
 
 	
 	

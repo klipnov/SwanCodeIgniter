@@ -21,6 +21,7 @@ class Theory101_logged extends CI_Controller {
 		
 		$data['learnLinks'] = $this->Pages_model->display_lesson();
 		$data['username'] = $this->session->userdata('username');
+		$data['videoLinks'] = $this->Pages_model->display_video();
 		
 		$data['total_quiz'] = $this->Pages_model->count_lessons();
 		
@@ -84,7 +85,7 @@ class Theory101_logged extends CI_Controller {
 		
 		/*****END OF TRACK*****/
 	
-		$this->load->view('theory101/logged_header');
+		$this->load->view('theory101/logged_header',$data);
 		$this->load->view('theory101/logged_in',$data);
 		$this->load->view('theory101/footer_theory');
 	}
@@ -104,6 +105,23 @@ class Theory101_logged extends CI_Controller {
 		$this->load->view('theory101/header_theory');
 		$this->load->view('theory101/menu_theory',$links);
 		$this->load->view('theory101/lessons/lesson_content',$data);
+		$this->load->view('theory101/footer_theory');
+	}
+	
+	public function video($id)
+	{
+		//load pages.lesson model
+		$this->load->model('Pages_model');
+		$this->load->model('Quiz_model');
+		
+		//load lessons into a variable
+		$data['video'] = $this->Pages_model->display_a_video($id);
+	
+		$links['videoLinks'] = $this->Pages_model->display_video();
+		
+		$this->load->view('theory101/header_theory');
+		$this->load->view('theory101/menu_theory',$links);
+		$this->load->view('theory101/video/video_content',$data);
 		$this->load->view('theory101/footer_theory');
 	}
 	

@@ -31,7 +31,7 @@ class Pages extends CI_Controller {
 		$data['main_links'] = $this->Swan_model->links();
 		$data['content'] = "Pages Content";
 		
-		$data['main_pages'] = $this->Pages_model->display_main_pages();
+		$data['main_pages'] = $this->Pages_model->display_video();
 		$data['lesson'] = $this->Pages_model->display_lesson();
 		
 		$this->load->view('swan/swan_header');
@@ -41,13 +41,13 @@ class Pages extends CI_Controller {
 	}
 	
 	//displays the page information and also be able to edit its contents
-	public function display_page_info($id)
+	public function display_video_info($id)
 	{
 		$this->load->model('Swan_model');
 		$this->load->model('Pages_model');
 		
 		$data['main_links'] = $this->Swan_model->links();
-		$data['content'] = $this->Pages_model->display_a_page($id);
+		$data['content'] = $this->Pages_model->display_a_video($id);
 		
 		$this->load->view('pages/pages_header');
 		$this->load->view('swan/swan_menu',$data);
@@ -56,7 +56,7 @@ class Pages extends CI_Controller {
 	}
 	
 	//displays the form to add page content
-	public function display_add_page()
+	public function display_add_video()
 	{
 		$this->load->model('Swan_model');
 		$this->load->model('Pages_model');
@@ -70,7 +70,7 @@ class Pages extends CI_Controller {
 	}
 	
 	//adds the page to the database
-	public function add_page()
+	public function add_video()
 	{
 		$this->load->model('Pages_model');
 		$this->load->helper('url');
@@ -78,13 +78,13 @@ class Pages extends CI_Controller {
 		$data['title'] = $this->input->post('title');
 		$data['content'] = $this->input->post('content');
 		
-		$this->Pages_model->add_page($data);
+		$this->Pages_model->add_video($data);
 		
-		$this->confirm('Added','Lesson has been added','pages');
+		$this->confirm('Added','Video has been added','pages');
 	}
 	
 	//udpates a page
-	public function update_page()
+	public function update_video()
 	{
 		$this->load->model('Pages_model');
 		$this->load->helper('url');
@@ -93,9 +93,9 @@ class Pages extends CI_Controller {
 		$data['title'] = $this->input->post('title');
 		$data['content'] = $this->input->post('content');
 		
-		$this->Pages_model->update_page($id,$data);
+		$this->Pages_model->update_video($id,$data);
 		
-		$this->confirm('Updated','Lesson has been updated','pages');
+		$this->confirm('Updated','Video has been updated','pages');
 	}
 	
 	//preview a page in SWAN using display a page function in the pages model
@@ -104,7 +104,7 @@ class Pages extends CI_Controller {
 		$this->load->model('Pages_model');
 		$this->load->model('Swan_model');
 		
-		$data['content'] = $this->Pages_model->display_a_page($id);
+		$data['content'] = $this->Pages_model->display_a_video($id);
 		
 		$data['main_links'] = $this->Swan_model->links();
 		
@@ -115,14 +115,14 @@ class Pages extends CI_Controller {
 	}
 	
 	//removes a page from the database
-	public function remove_page($id)
+	public function remove_video($id)
 	{
 		$this->load->model('Pages_model');
 		$this->load->helper('url');
 		
-		$this->Pages_model->remove_page($id);
+		$this->Pages_model->remove_video($id);
 		
-		$this->confirm('Removed','Section has been removed','pages');
+		$this->confirm('Removed','Video has been removed','pages');
 	}
 	
 	/******************/

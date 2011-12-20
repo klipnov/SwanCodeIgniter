@@ -6,40 +6,44 @@ class Pages_model extends CI_Model {
 		parent::__construct();
 	}
 	
-	//display the list of pages
-	function display_main_pages()
+	/************/
+	/** VIDEO ***/
+	/************/
+	
+	//display the list of video
+	function display_video()
 	{
-		$query = $this->db->get('mainPages');
+		$query = $this->db->get('video');
 		
 		return $query->result();
 	}
 	
-	//returns just one page information
-	function display_a_page($id)
+	//returns just one video information
+	function display_a_video($id)
 	{
-		$query = $this->db->get_where('mainPages', array('id'=>$id));
+		$query = $this->db->get_where('video', array('id'=>$id));
 		
 		return $query->result();
 	}
 	
-	//add a main page
-	function add_page($data)
+	//add a video
+	function add_video($data)
 	{
-		$this->db->insert('mainPages',$data);
+		$this->db->insert('video',$data);
 	}
 	
-	//edit a main page
-	function update_page($id,$data)
+	//edit a video
+	function update_video($id,$data)
 	{
 		$this->db->where('id',$id);
-		$this->db->update('mainPages',$data);
+		$this->db->update('video',$data);
 	}
 	
-	//remove a main page
-	function remove_page($id)
+	//remove a video
+	function remove_video($id)
 	{
 		$this->db->where('id',$id);
-		$this->db->delete('mainPages');
+		$this->db->delete('video');
 	} 
 	
 	/*************/
@@ -88,5 +92,8 @@ class Pages_model extends CI_Model {
 		$this->db->where('id',$id);
 		$this->db->delete('lesson');
 	}
+	
+
+	
 }
 
