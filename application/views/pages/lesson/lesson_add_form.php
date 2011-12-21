@@ -18,6 +18,14 @@
 	</tr>
 	<tr>
 		<td>
+			<?php echo form_label('Chapter Number:','chapter_num'); ?>
+		</td>
+		<td>
+			<?php echo form_input('chapter_num'); ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
 			<?php echo form_label('Content:','content'); ?>
 		</td>
 		<td>

@@ -54,19 +54,19 @@ class Theory101_logged extends CI_Controller {
 		
 		if($rank_num < 15.00)
 		{
-			$rank = "Newbie";
+			$rank = "I see your just starting out. You're now a Newbie. Watch video lessons if you have a problem understanding the lessons. Get more than 15% of total progress to get a beginner rank.";
 		}
 		else if ($rank_num >= 15.00 && $rank_num <=40.00)
 		{
-			$rank = "Beginner";
+			$rank = "You have advanced your first rank from a Newbie. You're now a Beginner. Watch video lessons if you have a problem understanding the lessons. Get more than 40% of total progress to get an Intermediate rank.";
 		}
-		else if ($rank_num >= 30.00 && $rank_num <=70.00)
+		else if ($rank_num >= 40.00 && $rank_num <=70.00)
 		{
-			$rank = "Intermediate";
+			$rank = "You are an Intermediate now. Practice more and you'll awarded Master rank at total progress more than 70%.";
 		}
 		else
 		{
-			$rank = "Master";
+			$rank = "You are now a Master. Congratulations, you can now post lessons and teach others.";
 		}  
 		
 		$data['rank'] = $rank;
@@ -74,7 +74,7 @@ class Theory101_logged extends CI_Controller {
 		
 		//enable users to post a lesson if they have master rank
 		
-		if($rank == "Master")
+		if($rank_num >= 70)
 		{
 			$data['post_enabled'] = TRUE;
 		}
@@ -96,14 +96,14 @@ class Theory101_logged extends CI_Controller {
 		$this->load->model('Pages_model');
 		$this->load->model('Quiz_model');
 		
+		
+		$data['learnLinks'] = $this->Pages_model->display_lesson();
+		$data['videoLinks'] = $this->Pages_model->display_video();
+		$data['total_quiz'] = $this->Pages_model->count_lessons();
 		//load lessons into a variable
 		$data['lesson'] = $this->Pages_model->display_a_lesson($id);
-	
-		$links['learnLinks'] = $this->Pages_model->display_lesson();
-		$links['total_quiz'] = $this->Pages_model->count_lessons();
 		
-		$this->load->view('theory101/header_theory');
-		$this->load->view('theory101/menu_theory',$links);
+		$this->load->view('theory101/logged_header',$data);
 		$this->load->view('theory101/lessons/lesson_content',$data);
 		$this->load->view('theory101/footer_theory');
 	}
@@ -117,10 +117,11 @@ class Theory101_logged extends CI_Controller {
 		//load lessons into a variable
 		$data['video'] = $this->Pages_model->display_a_video($id);
 	
-		$links['videoLinks'] = $this->Pages_model->display_video();
+		$data['learnLinks'] = $this->Pages_model->display_lesson();
+		$data['videoLinks'] = $this->Pages_model->display_video();
+		$data['total_quiz'] = $this->Pages_model->count_lessons();
 		
-		$this->load->view('theory101/header_theory');
-		$this->load->view('theory101/menu_theory',$links);
+		$this->load->view('theory101/logged_header',$data);
 		$this->load->view('theory101/video/video_content',$data);
 		$this->load->view('theory101/footer_theory');
 	}
@@ -133,11 +134,12 @@ class Theory101_logged extends CI_Controller {
 		
 		$data['quiz'] = $this->Quiz_model->get_quiz_question($chapter);
 		
-		$links['learnLinks'] = $this->Pages_model->display_lesson();
-		$links['total_quiz'] = $this->Pages_model->count_lessons();
+		$data['learnLinks'] = $this->Pages_model->display_lesson();
+		$data['videoLinks'] = $this->Pages_model->display_video();
+		$data['total_quiz'] = $this->Pages_model->count_lessons();
+		$data['chapter_num'] = $chapter;
 		
-		$this->load->view('theory101/header_theory');
-		$this->load->view('theory101/menu_theory',$links);
+		$this->load->view('theory101/logged_header',$data);
 		$this->load->view('theory101/quiz/quiz_content',$data);
 		$this->load->view('theory101/footer_theory');
 	}
@@ -159,7 +161,11 @@ class Theory101_logged extends CI_Controller {
 		$percentage = ($correct/$total_question) * 100;
 		
 		$this->load->model('Quiz_model');
+		$this->load->model('Pages_model');
 		
+		$lesson_id = $this->Pages_model->get_chapter_id($this->input->post('chapter'));
+		
+		//save the data in array to send to the quiz_marks table
 		$data = array(
 				'user_id' => $this->session->userdata('id'),
 				'quiz_chapter' => $this->input->post('chapter'),
@@ -170,8 +176,16 @@ class Theory101_logged extends CI_Controller {
 		
 		$this->Quiz_model->add_marks($data);
 	 	
-	 	$this->confirm('Result',"You scored $correct out of $total_question
+	 	if($percentage == 100)
+	 	{
+	 	$this->confirm('Result',"Congratulations, You scored $correct out of $total_question
 	 	 <br> $percentage% ",'theory101_logged');
+	 	}
+	 	else
+	 	{
+	 	$this->confirm_retry('Result',"You scored $correct out of $total_question
+	 	 <br> $percentage%. You can retry the Quiz or read the chapter again. ",'theory101_logged',$lesson_id,$this->input->post('chapter'));
+	 	}
 	}
 	
 	public function confirm($title,$message,$link)
@@ -181,6 +195,17 @@ class Theory101_logged extends CI_Controller {
 		$data['link'] = $link;
 		
 		$this->load->view('swan/swan_confirm',$data);
+	}
+	
+	public function confirm_retry($title,$message,$link,$chapter,$quiz)
+	{
+		$data['title'] = $title;
+		$data['message'] = $message;
+		$data['link'] = $link;
+		$data['linkChapter'] = "theory101_logged/lessons/$chapter";
+		$data['linkQuiz'] = "theory101_logged/quiz/$quiz";
+		
+		$this->load->view('theory101/quiz/quiz_confirm',$data);
 	}
 	
 	public function post_lesson()

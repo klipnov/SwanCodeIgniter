@@ -73,6 +73,19 @@ class Pages_model extends CI_Model {
 		return $query->result();
 	}
 	
+	function get_chapter_id($chapter_num)
+	{
+		$query = $this->db->get_where('lesson',array('chapter_num' => $chapter_num));
+		
+		$chapter_num_db = 0;
+		
+		foreach($query->result() as $item)
+		{
+			$chapter_num_db = $item->id;
+		}
+		return  $chapter_num_db;
+	}
+	
 	//add a lesson
 	function add_lesson($data)
 	{

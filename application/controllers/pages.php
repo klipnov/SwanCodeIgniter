@@ -168,6 +168,7 @@ class Pages extends CI_Controller {
 		$this->load->model('Pages_model');
 		
 		$data['title'] = $this->input->post('title');
+		$data['chapter_num'] = $this->input->post('chapter_num');
 		$data['content'] = $this->input->post('content');
 		
 		$this->Pages_model->add_lesson($data);

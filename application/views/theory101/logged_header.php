@@ -3,7 +3,6 @@
 <head><title>Theory101</title>
 
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/reset.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/text.css" />
@@ -12,46 +11,20 @@
 <link rel="stylesheet" type="text/css" media="all" href="/SwanCodeIgniter/css/theory101.css" />
 
 <script type="text/javascript" src="/SwanCodeIgniter/css/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="/SwanCodeIgniter/css/superfish/js/superfish.js"></script>
 <script type="text/javascript" src="/SwanCodeIgniter/css/superfish/js/hoverIntent.js"></script>
+<script type="text/javascript" src="/SwanCodeIgniter/css/superfish/js/superfish.js"></script>
+
 <?php $this->load->helper('html'); ?>
 <?php $this->load->helper('url'); ?>
 
-<!--<script type="text/javascript">
-$(document).ready(function(){
-
-    $("#learn").hide();
-    $("#assess").hide();
-    $("#track").hide();
-
-  $("#learnLink").click(function(){
-    $("#learn").toggle("slow");
-    $("#assess").hide();
-    $("#track").hide();
-
-  });
-  
-  $("#assessLink").click(function(){
-   $("#assess").toggle("slow");
-    $("#learn").hide();
-    $("#track").hide();
-
-  });
-  
-  $("#trackLink").click(function(){
-    $("#track").toggle("slow");
-    $("#assess").hide();
-    $("#learn").hide();
-
-  });
-  
-});
-</script>-->
 <script>
 
-	$(document).ready(function() {
-		$("ul.sf-menu".superfish();
-	});
+		jQuery(function(){
+			jQuery('ul.sf-menu').superfish({
+			animation: {height:'show'},   
+            delay:     1200                
+			});
+		});
 
 </script>
 
@@ -74,9 +47,12 @@ $(document).ready(function(){
 	<!-- Theory101 menu -->
 	<div class="clear"></div>
 	<div id="menu" class="grid_12">
-	<ul class="sf-menu">
+	<ul class="sf-menu menuStyle">
 		<li class="current">
-			<a href="#">Lesson</a>
+			<a href="<?php echo site_url('theory101_logged'); ?>">HOME</a>
+		</li>
+		<li>
+			<a href="#">LESSON</a>
 				<ul>
 				<?php foreach($learnLinks as $item): ?>
 				<li><a href="<?php echo site_url('theory101_logged/lessons/'); ?>
@@ -86,17 +62,17 @@ $(document).ready(function(){
 				</ul>
 		</li>
 		<li>
-			<a href="#">Video</a>
+			<a href="#">VIDEO</a>
 				<ul>
 				<?php foreach($videoLinks as $item): ?>
 				<li><a href="<?php echo site_url('theory101_logged/video/'); ?>
-				<?php echo '/' . $item->id; ?>" class="link" >
+				<?php echo '/' . $item->id; ?>" >
 				<?php echo $item->title; ?></a></li>
 				<?php endforeach; ?>
 				</ul>
 		</li>
 		<li>
-			<a href="#">Quiz</a>
+			<a href="#">QUIZ</a>
 				<ul>
 					<?php for($i = 1; $i <= $total_quiz; $i++)
 					{
@@ -108,7 +84,14 @@ $(document).ready(function(){
 				</ul>
 		</li>
 		<li>
-			<a href="<?php echo site_url('theory101_logout'); ?>">Logout</a>
+			<a href="#">MISC</a>
+			<ul>
+				<li><a href="#">Quiz History</a></li>
+				<li><a href="#">Suggestions</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="<?php echo site_url('theory101_logout'); ?>">LOGOUT</a>
 		</li>
 	</ul>
 	</div>

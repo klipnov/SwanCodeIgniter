@@ -2,7 +2,7 @@
 <div class="clear"></div>
 <div id="content" class="grid_12">
 	<?php $this->load->helper('form'); ?>
-	
+	<h1><?php echo "Quiz " . $chapter_num; ?></h1>
 	<?php echo form_open('theory101_logged/process_quiz'); ?>
 	<?php $i = 0; ?>
 	
