@@ -1,12 +1,12 @@
-<div id="content">
+<div id="content" class="grid_12">
 
 <?php $this->load->helper('form'); ?>
 	
 <h3>Post a New Lesson</h3>
 <br>
 
-<?php echo form_open('theory101_logged/add_lesson'); ?>
-
+<?php echo form_open('theory101_logged/post_lesson'); ?>
+			<?php echo form_hidden('user_id',$user_id); ?>
 <table id="addForm">
 	<tr>
 		<td>

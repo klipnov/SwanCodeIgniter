@@ -13,6 +13,7 @@
 <script type="text/javascript" src="/SwanCodeIgniter/css/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="/SwanCodeIgniter/css/superfish/js/hoverIntent.js"></script>
 <script type="text/javascript" src="/SwanCodeIgniter/css/superfish/js/superfish.js"></script>
+<script type="text/javascript" src="/SwanCodeIgniter/ckeditor/ckeditor.js"></script>
 
 <?php $this->load->helper('html'); ?>
 <?php $this->load->helper('url'); ?>

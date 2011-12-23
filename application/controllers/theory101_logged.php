@@ -210,19 +210,41 @@ class Theory101_logged extends CI_Controller {
 	
 	public function post_lesson()
 	{
-	//post a lesson for MASTER ranks
-	
+		//post a lesson for MASTER ranks
+		$this->load->model('Pages_model');
+		
+		$data['title'] = $this->input->post('title');
+		$data['content'] = $this->input->post('content');
+		$data['user_id'] = $this->input->post('user_id');
+		$data['username'] = $this->session->userdata('username');
+		
+		$this->Pages_model->add_user_lesson($data);
+		
+		$this->confirm('Success','You lesson has been added in the database','theory101_logged');
 	}
 	
-	public function post_lesson_form()
+	public function display_lesson_form()
 	{
-	//display the add lesson form
+		//display the add lesson form
+		$this->load->model('Quiz_model');
+		$this->load->model('Pages_model');
+		
+		$data['learnLinks'] = $this->Pages_model->display_lesson();
+		$data['videoLinks'] = $this->Pages_model->display_video();
+		$data['total_quiz'] = $this->Pages_model->count_lessons();
 	
+		$data['user_id'] = $this->session->userdata('id');
+		$data['username'] = $this->session->userdata('username');
+		
+		$this->load->view('theory101/logged_header',$data);	
+		$this->load->view('theory101/lessons/add_lesson',$data);	
+		$this->load->view('theory101/footer_theory');
 	}
 	
 	public function display_posted_lesson()
 	{
-	//display lessons that the user posted
+		//display lessons that the user posted
+		$this->load->model('Pages_model');
 	}
 }
 

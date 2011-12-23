@@ -24,7 +24,7 @@
 
 	<?php if($post_enabled == TRUE)
 		  {
-		  	echo "<a href='#' class='link'> Post a Lesson </a><br/>";
+		  	echo "<a href='". site_url('theory101_logged/display_lesson_form') . "' class='link'> Post a Lesson </a><br/>";
 		  }
 	?>
 	</div>

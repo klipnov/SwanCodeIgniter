@@ -106,6 +106,29 @@ class Pages_model extends CI_Model {
 		$this->db->delete('lesson');
 	}
 	
+	/****************/
+	/**USER LESSONS**/
+	/****************/
+	
+	//insert a user_lesson
+	function add_user_lesson($data)
+	{
+		$this->db->insert('user_lesson',$data);
+	}
+	
+	//update a user_lesson
+	function update_user_lesson($id,$data)
+	{
+		$this->db->where('id',$id);
+		$this->db->update('lesson',$data);
+	}
+	
+	//remove a user_lesson
+	function remove_user_lesson($id)
+	{
+		$this->db->where('id',$id);
+		$this->db->delete('user_lesson');
+	}
 
 	
 }
