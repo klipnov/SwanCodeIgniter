@@ -55,11 +55,26 @@
 		<li>
 			<a href="#">LESSON</a>
 				<ul>
-				<?php foreach($learnLinks as $item): ?>
-				<li><a href="<?php echo site_url('theory101_logged/lessons/'); ?>
-				<?php echo '/' . $item->id; ?>" >
-				<?php echo $item->title; ?></a></li>
-				<?php endforeach; ?>
+						<li>
+							<a href="#">Site Lessons</a>
+							<ul>
+								<?php foreach($learnLinks as $item): ?>
+								<li><a href="<?php echo site_url('theory101_logged/lessons/'); ?>
+								<?php echo '/' . $item->id; ?>" >
+								<?php echo $item->title; ?></a></li>
+								<?php endforeach; ?>
+							</ul>
+						</li>
+						<li>
+							<a href="#">User Lessons</a>
+							<ul>
+								<?php foreach($user_links as $item): ?>
+								<li><a href="<?php echo site_url('theory101_logged/user_lesson/'); ?>
+								<?php echo '/' . $item->id; ?>" >
+								<?php echo $item->title; ?></a></li>
+								<?php endforeach; ?>
+							</ul>
+						</li>
 				</ul>
 		</li>
 		<li>

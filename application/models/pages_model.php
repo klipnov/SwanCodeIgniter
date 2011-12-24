@@ -129,6 +129,22 @@ class Pages_model extends CI_Model {
 		$this->db->where('id',$id);
 		$this->db->delete('user_lesson');
 	}
+	
+	//return user lesson information
+	function display_user_lesson()
+	{
+		$query = $this->db->get('user_lesson');
+		
+		return $query->result();
+	}
+	
+	//return a single user lesson information
+	function display_a_user_lesson($id)
+	{
+		$query = $this->db->get_where('user_lesson',array('id'=>$id));
+		
+		return $query->result();
+	}
 
 	
 }
