@@ -15,10 +15,4 @@
 		<p>You can add,remove and edit users from the database.
 		   You can give administrative power to users in this section.
 		</p>
-		
-		<h3>To-Do</h3>
-		-Make the login system for theory101(done)<br/>
-		-give administrative power to users(one's that can use SWAN)<br/>
-		-the quiz system for theory101 (only need to store users score)<br/>
-		-make a database to store the users score<br/>
 	</div>

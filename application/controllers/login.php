@@ -12,7 +12,7 @@ class Login extends CI_Controller {
 		$this->load->view('login_view');		
 	}
 	
-	public function authenticate()
+	public function authenticate_admin()
 	{
 		$this->load->model('Login_model');
 		$this->load->helper('url');
@@ -25,33 +25,46 @@ class Login extends CI_Controller {
 		//check for username
 		if($user_details == NULL)
 		{
-			$this->confirm('Error','Your username does not exist <br/> Please try again','theory101');
+		$this->confirm('Error','The Authorise username does not exists. Please contact the admin.','swan');
 		}
 		else
 		{
 			foreach($user_details as $item):
+			$id = $item->id;
 			$db_password = $item->password;
+			$admin = $item->admin;
 			endforeach;
+			
+			//check if password matches from the db
+			if($password == $db_password)
+			{
+				if($admin == "yes")
+				{
+		
+				$user_session = array(
+								'id' => $id,
+								'username' => $username,
+								'logged_in' => TRUE
+								);
+		
+				$this->session->set_userdata($user_session);
+		
+				redirect('swan','refresh');
+				}
+				else
+				{
+					$this->confirm('No Administrative Permission',
+					'Not Authorized!Please contact Admin.','swan');
+				}
+			}
+			else
+			{
+					$this->confirm('Error',
+					'Wrong password! Please try again.','swan');
+			}
 		}
 		
-		//check if password matches from the db
-		if($password == $db_password)
-		{
-		
-			$user_session = array(
-							'id' => $id,
-							'username' => $username,
-							'logged_in' => TRUE
-							);
-		
-			$this->session->set_userdata($user_session);
-		
-			redirect('swan','refresh');
-		}
-		else
-		{
-			$this->confirm('Error','You typed in the wrong password <br/> Please try again','theory101');
-		}				
+	
 	}
 	
 	public function confirm($title,$message,$link)

@@ -25,7 +25,7 @@ text-align:center;
 <?php echo img('images/swanLogo.png'); ?>
 </div>
 <div id="login">
-<?php echo form_open('login/authenticate'); ?>
+<?php echo form_open('login/authenticate_admin'); ?>
 
 
 <input type="text" name="username" required="required" placeholder="Username"/><br>
