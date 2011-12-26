@@ -15,6 +15,7 @@ class Swan_model extends CI_Model {
 		               'pages' => 'Pages',
 		               'quiz' => 'Quiz',
 		               'users' => 'Users',
+		               'messages' => 'Messages',
 		               'logout' => 'Logout'
 		               );
 		return $links;
