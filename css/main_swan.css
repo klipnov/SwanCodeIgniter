@@ -82,7 +82,11 @@ body {
 }
 
 .small {
-	font-size:10px;
+	font-size:9px;
+}
+
+.medium {
+	font-size:12px;
 }
 
 #content {
@@ -99,6 +103,14 @@ body {
 	color:white;
 	text-align:right;
 	clear:both;
+}
+
+#message_box {
+	padding-left:5px;
+	padding-top:5px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#C0C0C0;
 }
 
 #pagesdiv1 {

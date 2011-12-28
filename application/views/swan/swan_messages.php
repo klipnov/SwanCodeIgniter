@@ -1,15 +1,20 @@
 <div id="content">
 
+	<div id='message_box' class='grid_12'>
 	<?php foreach($messages as $item): ?>
 	<?php echo "<b>" . $item->username . "</b>" . ": "; ?>
-	<?php echo $item->message . " "; ?>
+	<font class='medium'><?php echo $item->message . " "; ?></font>
 	<font class='small'><?php echo "on " . $item->date . " "; ?></font>
 	<a href="<?php echo site_url('messages/announce'); ?>" class='small'>Announce</a>
 	<br/>
 	<?php endforeach; ?>
 	<br/>
+
+	</div>
 	<a href="#" class='small'> Cancel Announcements</a>
 	<br/><br/>
+	
+	<div class='grid_12'>
 	<?php $this->load->helper('form'); ?>
 	<?php echo form_open('messages/send'); ?>
 	
@@ -20,7 +25,7 @@
 	<input type='submit' value='Submit'>
 	
 	<?php echo form_close(); ?>
-	
+	</div>
 	
 	<br>
 	

@@ -33,6 +33,8 @@ class Messages_model extends CI_Model {
 	//return admin_message information
 	function display_admin_message()
 	{
+		$this->db->order_by('date','desc');
+		
 		$query = $this->db->get('admin_message');
 		
 		return $query->result();
