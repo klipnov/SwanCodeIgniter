@@ -42,6 +42,24 @@ class Messages extends CI_Controller {
 	
 	}
 	
+	public function announce($id)
+	{
+		$this->load->model('Messages_model');
+		
+		$this->Messages_model->update_announce($id);
+		
+		$this->confirm('Announced','Your selected message has been announced','messages');
+	}
+	
+	public function remove_announce()
+	{
+		$this->load->model('Messages_model');
+		
+		$this->Messages_model->remove_announce();
+		
+		$this->confirm('Removed','Messages has been removed from the frontEnd','messages');
+	}
+	
 	public function confirm($title,$message,$link)
 	{
 		$data['title'] = $title;

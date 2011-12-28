@@ -5,13 +5,13 @@
 	<?php echo "<b>" . $item->username . "</b>" . ": "; ?>
 	<font class='medium'><?php echo $item->message . " "; ?></font>
 	<font class='small'><?php echo "on " . $item->date . " "; ?></font>
-	<a href="<?php echo site_url('messages/announce'); ?>" class='small'>Announce</a>
+	<a href="<?php echo site_url('messages/announce') . '/' . $item->id; ?>" class='small'>Announce</a>
 	<br/>
 	<?php endforeach; ?>
 	<br/>
 
 	</div>
-	<a href="#" class='small'> Cancel Announcements</a>
+	<a href="<?php echo site_url('messages/remove_announce'); ?>" class='small'> Cancel Announcements</a>
 	<br/><br/>
 	
 	<div class='grid_12'>

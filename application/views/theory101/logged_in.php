@@ -19,6 +19,10 @@
 	<?php echo $item->percentage . "%"; ?>
 	<?php echo "on Chapter " . $item->quiz_chapter . "."; ?>
 	<?php endforeach; ?>
+	
+	<?php foreach( $message as $item): ?>
+	<?php echo $item->message; ?>
+	<?php endforeach; ?>
 	</p>
 	<br/><br/>
 

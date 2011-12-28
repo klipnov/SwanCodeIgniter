@@ -18,6 +18,7 @@ class Theory101_logged extends CI_Controller {
 		//get topic of the chapters and the id
 		$this->load->model('Pages_model');
 		$this->load->model('Quiz_model');
+		$this->load->model('Messages_model');
 		
 		$data['learnLinks'] = $this->Pages_model->display_lesson();
 		$data['username'] = $this->session->userdata('username');
@@ -25,6 +26,7 @@ class Theory101_logged extends CI_Controller {
 		$data['user_links'] = $this->Pages_model->display_user_lesson();
 		
 		$data['total_quiz'] = $this->Pages_model->count_lessons();
+		$data['message'] = $this->Messages_model->get_admin_message();
 		
 		/***TRACK****/
 		//get user last quiz
