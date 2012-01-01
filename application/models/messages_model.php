@@ -6,9 +6,9 @@ class Messages_model extends CI_Model {
 		parent::__construct();
 	}
 	
-	/************/
-	/**Messages**/
-	/************/
+	/******************/
+	/**Admin_Messages**/
+	/******************/
 	
 	//add an admin_message
 	function add_message($data)
@@ -74,6 +74,48 @@ class Messages_model extends CI_Model {
 	function display_an_admin_message($id)
 	{
 		$query = $this->db->get_where('admin_message',array('id'=>$id));
+		
+		return $query->result();
+	}
+	
+	/******************/
+	/**User_Messages**/
+	/******************/
+	
+	//add an user_message
+	function add_user_message($data)
+	{
+		$this->db->insert('user_message',$data);
+	}
+	
+	//update a user_message
+	function update_user_message($id,$data)
+	{
+		$this->db->where('id',$id);
+		$this->db->update('user_message',$data);
+	}
+	
+	//remove a user_message
+	function remove_user_message($id)
+	{
+		$this->db->where('id',$id);
+		$this->db->delete('user_message');
+	}
+	
+	//return user_message information ordered by latest date first
+	function display_user_message()
+	{
+		$this->db->order_by('date','desc');
+		
+		$query = $this->db->get('user_message');
+		
+		return $query->result();
+	}	
+	
+	//return a single user_message information
+	function display_a_user_message($id)
+	{
+		$query = $this->db->get_where('user_message',array('id'=>$id));
 		
 		return $query->result();
 	}

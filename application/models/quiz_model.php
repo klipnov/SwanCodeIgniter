@@ -73,4 +73,12 @@ class Quiz_model extends CI_Model {
 		return $query->result();
 	}
 	
+	function get_quiz_marks($user_id)
+	{
+		$this->db->where('user_id',$user_id);
+		$query = $this->db->get('quiz_marks');
+		
+		return $query->result();
+	}
+	
 }

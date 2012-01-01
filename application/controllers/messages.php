@@ -17,11 +17,13 @@ class Messages extends CI_Controller {
 	{
 		$this->load->model('Swan_model');
 		$this->load->model('Messages_model');
+		$this->load->model('Users_model');
 		
 		$data['main_links'] = $this->Swan_model->links();
 		$data['content'] = $this->Swan_model->content();
 		$data['messages'] = $this->Messages_model->display_admin_message();
 		$data['username'] = $this->session->userdata('username');
+		$data['usernames'] = $this->Users_model->display_users();
 		
 		$this->load->view('swan/swan_header');
 		$this->load->view('swan/swan_menu',$data);

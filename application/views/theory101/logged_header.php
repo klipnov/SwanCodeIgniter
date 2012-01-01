@@ -102,8 +102,8 @@
 		<li>
 			<a href="#">MISC</a>
 			<ul>
-				<li><a href="#">Quiz History</a></li>
-				<li><a href="#">Suggestions</a></li>
+				<li><a href="<?php echo site_url('theory101_logged/quiz_history') ?>">Quiz History</a></li>
+				<li><a href="<?php echo site_url('theory101_logged/messages') ?>">Messages</a></li>
 			</ul>
 		</li>
 		<li>

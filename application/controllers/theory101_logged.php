@@ -266,6 +266,40 @@ class Theory101_logged extends CI_Controller {
 		$this->load->view('theory101/lessons/user_lesson_content',$data);
 		$this->load->view('theory101/footer_theory');
 	}
+	
+	//display users quiz history
+	public function quiz_history()
+	{
+		$this->load->model('Quiz_model');
+		$this->load->model('Pages_model');
+		
+		$data['learnLinks'] = $this->Pages_model->display_lesson();
+		$data['videoLinks'] = $this->Pages_model->display_video();
+		$data['total_quiz'] = $this->Pages_model->count_lessons();
+		$data['user_links'] = $this->Pages_model->display_user_lesson();
+		
+		$marks['history'] = $this->Quiz_model->get_quiz_marks($this->session->userdata('id'));
+		
+		
+		$this->load->view('theory101/logged_header',$data);	
+		$this->load->view('theory101/misc/quiz_history',$marks);
+		$this->load->view('theory101/footer_theory');		
+	}
+	
+	public function messages()
+	{
+		$this->load->model('Pages_model');
+		
+		$data['learnLinks'] = $this->Pages_model->display_lesson();
+		$data['videoLinks'] = $this->Pages_model->display_video();
+		$data['total_quiz'] = $this->Pages_model->count_lessons();
+		$data['user_links'] = $this->Pages_model->display_user_lesson();
+		
+		
+		$this->load->view('theory101/logged_header',$data);	
+		$this->load->view('theory101/misc/messages_content',$message);
+		$this->load->view('theory101/footer_theory');
+	}	
 }
 
 

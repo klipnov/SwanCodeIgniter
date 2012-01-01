@@ -113,6 +113,14 @@ body {
 	border-color:#C0C0C0;
 }
 
+#message_box_user {
+	padding-left:5px;
+	padding-top:5px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#C0C0C0;
+}
+
 #pagesdiv1 {
 	float:left;
 	width:210px;
