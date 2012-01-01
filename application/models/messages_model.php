@@ -113,9 +113,9 @@ class Messages_model extends CI_Model {
 	}	
 	
 	//return a single user_message information
-	function display_a_user_message($id)
+	function display_a_user_message($username)
 	{
-		$query = $this->db->get_where('user_message',array('id'=>$id));
+		$query = $this->db->get_where('user_message',array('to'=>$username));
 		
 		return $query->result();
 	}

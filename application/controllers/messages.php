@@ -24,6 +24,8 @@ class Messages extends CI_Controller {
 		$data['messages'] = $this->Messages_model->display_admin_message();
 		$data['username'] = $this->session->userdata('username');
 		$data['usernames'] = $this->Users_model->display_users();
+		$data['user_messages'] = $this->Messages_model
+								 ->display_a_user_message('admin');
 		
 		$this->load->view('swan/swan_header');
 		$this->load->view('swan/swan_menu',$data);

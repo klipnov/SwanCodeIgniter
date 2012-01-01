@@ -32,7 +32,7 @@
 	<h3>User Messages</h3>
 	<div id='message_box_user' class='grid_12'>
 
-	<?php foreach($messages as $item): ?>
+	<?php foreach($user_messages as $item): ?>
 	<?php echo "<b>" . $item->username . "</b>" . ": "; ?>
 	<font class='medium'><?php echo $item->message . " "; ?></font>
 	<font class='small'><?php echo "on " . $item->date . " "; ?></font>

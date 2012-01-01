@@ -99,6 +99,7 @@ class Users extends CI_Controller {
 		$this->load->view('swan/swan_footer');
 	}
 	
+	//the confirm box screen
 	public function confirm($title,$message,$link)
 	{
 		$data['title'] = $title;

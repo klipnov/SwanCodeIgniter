@@ -289,14 +289,22 @@ class Theory101_logged extends CI_Controller {
 	public function messages()
 	{
 		$this->load->model('Pages_model');
+		$this->load->model('Messages_model');
 		
 		$data['learnLinks'] = $this->Pages_model->display_lesson();
 		$data['videoLinks'] = $this->Pages_model->display_video();
 		$data['total_quiz'] = $this->Pages_model->count_lessons();
 		$data['user_links'] = $this->Pages_model->display_user_lesson();
 		
+		$username = $this->session->userdata('username');
 		
-		$this->load->view('theory101/logged_header',$data);	
+		$message['messages'] = $this->Messages_model->
+							   display_a_user_message($username);
+		
+		$message['username'] = $username;
+		
+		
+		$this->load->view('theory101/logged_header',$data);
 		$this->load->view('theory101/misc/messages_content',$message);
 		$this->load->view('theory101/footer_theory');
 	}	
