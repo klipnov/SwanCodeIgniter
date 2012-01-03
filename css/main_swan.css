@@ -89,6 +89,12 @@ body {
 	font-size:12px;
 }
 
+.mediumAlert {
+	font-size:14px;
+	color:red;
+	font-weight:bold;
+}
+
 #content {
 	background-color:white;
 	clear:both;
@@ -111,6 +117,8 @@ body {
 	border-style:solid;
 	border-width:1px;
 	border-color:#C0C0C0;
+	height:150px;
+	overflow:auto;
 }
 
 #message_box_user {
@@ -119,6 +127,8 @@ body {
 	border-style:solid;
 	border-width:1px;
 	border-color:#C0C0C0;
+	height:150px;
+	overflow:auto;
 }
 
 #pagesdiv1 {

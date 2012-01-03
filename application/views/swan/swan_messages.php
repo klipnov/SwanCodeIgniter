@@ -2,11 +2,34 @@
 
 	<h3>Log Messages</h3>
 	<div id='message_box' class='grid_12'>
+	<!--<?php $announced_id = 0; ?>-->
+	<?php foreach($announced_message as $item): ?>
+	<?php $announced_id = $item->id; ?>
+	<?php endforeach; ?>
+	
 	<?php foreach($messages as $item): ?>
 	<?php echo "<b>" . $item->username . "</b>" . ": "; ?>
 	<font class='medium'><?php echo $item->message . " "; ?></font>
 	<font class='small'><?php echo "on " . $item->date . " "; ?></font>
-	<a href="<?php echo site_url('messages/announce') . '/' . $item->id; ?>" class='small'>Announce</a>
+	
+
+	
+	<?php
+	
+	if($announced_id == $item->id)
+	{
+		 echo "<font class='mediumAlert'>Announced!</font>";
+		 
+	}
+	else
+	{
+	
+	 echo "<a href=". site_url('messages/announce') . '/' . $item->id . " class='small'>Announce</a>";
+	}
+	
+	?>
+	
+
 	<br/>
 	<?php endforeach; ?>
 	<br/>
@@ -36,7 +59,7 @@
 	<?php echo "<b>" . $item->username . "</b>" . ": "; ?>
 	<font class='medium'><?php echo $item->message . " "; ?></font>
 	<font class='small'><?php echo "on " . $item->date . " "; ?></font>
-
+	
 	<br/>
 	<?php endforeach; ?>
 	</div>

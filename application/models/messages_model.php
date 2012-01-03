@@ -78,11 +78,19 @@ class Messages_model extends CI_Model {
 		return $query->result();
 	}
 	
+	//return id of the announced message\
+	function announced_message()
+	{
+	$query = $this->db->get_where('admin_message',array('announce' => 'yes'));
+	
+	return $query->result();
+	}
+	
 	/******************/
 	/**User_Messages**/
 	/******************/
 	
-	//add an user_message
+	//add a user_message
 	function add_user_message($data)
 	{
 		$this->db->insert('user_message',$data);
@@ -119,5 +127,28 @@ class Messages_model extends CI_Model {
 		
 		return $query->result();
 	}
+	
+	//return a number of unread messages
+	function unread_messages($username)
+	{
+		$this->db->where('to',$username);
+		$this->db->where('opened','no');
+		$this->db->from('user_message');
+		$query = $this->db->count_all_results();
+		
+		return $query;
+	}
+	
+	//change unread to read
+	function change_to_read($username)
+	{
+		$data = array( 'opened' => 'yes');
+		
+		$this->db->where('to',$username);
+		$this->db->where('opened','no');
+		$this->db->update('user_message',$data);
+	}
+	
+	
 	
 }

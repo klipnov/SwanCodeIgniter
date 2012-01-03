@@ -14,7 +14,7 @@
 	
 	<div class='grid_12'>
 	<?php $this->load->helper('form'); ?>
-	<?php echo form_open('messages/send_to_user'); ?>
+	<?php echo form_open('messages/send_to_admin'); ?>
 	
 	<?php echo form_hidden('username',$username); ?>
 	

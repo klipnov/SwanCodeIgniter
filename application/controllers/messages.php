@@ -26,6 +26,8 @@ class Messages extends CI_Controller {
 		$data['usernames'] = $this->Users_model->display_users();
 		$data['user_messages'] = $this->Messages_model
 								 ->display_a_user_message('admin');
+								 
+		$data['announced_message'] = $this->Messages_model->announced_message();
 		
 		$this->load->view('swan/swan_header');
 		$this->load->view('swan/swan_menu',$data);
@@ -43,6 +45,34 @@ class Messages extends CI_Controller {
 		$this->Messages_model->add_message($data);
 		
 		$this->confirm('Success','Your message has been added','messages');
+	
+	}
+	
+	public function send_to_user()
+	{
+		$this->load->model('Messages_model');
+		
+		$data['username'] = $this->session->userdata('username');
+		$data['message'] = $this->input->post('message');
+		$data['to'] = $this->input->post('username');
+		
+		$this->Messages_model->add_user_message($data);
+
+		$this->confirm('Success','Your message has been sent','messages');
+	
+	}
+	
+	public function send_to_admin()
+	{
+		$this->load->model('Messages_model');
+		
+		$data['username'] = $this->session->userdata('username');
+		$data['message'] = $this->input->post('message');
+		$data['to'] = "admin";
+		
+		$this->Messages_model->add_user_message($data);
+
+		$this->confirm('Success','Your message has been sent','theory101_logged');
 	
 	}
 	

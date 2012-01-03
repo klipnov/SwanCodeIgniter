@@ -17,9 +17,13 @@
 		<tr> 	
 			<td><?php echo $result->id; ?></td>
 			<td><?php echo $result->username; ?></td>
-			<td><?php echo $result->password; ?></td>
+			<td><?php for($i=0; $i<= strlen($result->password); $i++)
+					  {
+					    echo "*";					  
+					  } 
+			?></td>
 			<td><?php echo $result->email; ?></td>
-			<td><a href="#" >Info</td>
+			<td><?php echo anchor("users/user_info/$result->id",'Info'); ?></td>
 			<td><?php echo anchor("users/edit_user/$result->id",'Edit'); ?></td>
 			
 			<td>

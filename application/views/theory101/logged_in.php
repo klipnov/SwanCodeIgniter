@@ -19,9 +19,10 @@
 	<?php echo $item->percentage . "%"; ?>
 	<?php echo "on Chapter " . $item->quiz_chapter . "."; ?>
 	<?php endforeach; ?>
-	
+	<?php echo $weak_message; ?>
 	<?php foreach( $message as $item): ?>
-	<?php echo $item->message; ?>
+	<b><?php echo $unread_messages; ?></b>
+	<i><?php echo $item->message; ?></i>
 	<?php endforeach; ?>
 	</p>
 	<br/><br/>
@@ -31,5 +32,6 @@
 		  	echo "<a href='". site_url('theory101_logged/display_lesson_form') . "' class='link'> Post a Lesson </a><br/>";
 		  }
 	?>
+	
 	</div>
 </div>

@@ -26,13 +26,10 @@ class Swan_model extends CI_Model {
 	*/
 	function content()
 	{
-		$content = "SWAN is the backend of Theory 101
-		                and is used to add remove update
-		 				information in the database.
-		 			    Pages is used for the
-		 			    CRUD feature in lessons and
-		 			    Theory 101's static
-		 			    pages.";
+		$content = "SWAN stands for Simple Web Admin.
+					SWAN is the backend of Theory 101
+		            and its purpose is to add, remove and update
+		 			information in the database.";
 						
 		return $content; 
 	}  

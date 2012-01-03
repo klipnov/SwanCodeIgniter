@@ -211,7 +211,7 @@ class Pages extends CI_Controller {
 		$this->confirm('Removed','Lesson has been removed','pages');
 	}
 	
-		public function confirm($title,$message,$link)
+	public function confirm($title,$message,$link)
 	{
 		$data['title'] = $title;
 		$data['message'] = $message;

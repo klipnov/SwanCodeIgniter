@@ -108,5 +108,40 @@ class Users extends CI_Controller {
 		
 		$this->load->view('swan/swan_confirm',$data);
 	}
+	
+	//display the users quiz history
+	public function user_info($id)
+	{
+		$this->load->model('Quiz_model');
+		$this->load->model('Pages_model');
+		$this->load->model('Swan_model');
+		$this->load->model('Users_model');
+		
+		$menu['main_links'] = $this->Swan_model->links();		
+		$total_quiz = $this->Pages_model->count_lessons();
+		
+		$marks['history'] = $this->Quiz_model->get_quiz_marks($id);
+		$marks['userinfo'] = $this->Users_model->display_a_user($id);
+		
+		$total=0;
+		
+		for($i=1;$i <= $total_quiz; $i++)
+		{
+			$percentage = $this->Quiz_model->get_highest_percentage($id,$i);
+			foreach($percentage as $item)
+			{
+				$number = $item->percentage;
+			}
+			
+			$total += $number . "<br>";
+		}
+		
+		$marks['overall'] = $total/$total_quiz;
+		
+		$this->load->view('swan/swan_header');
+		$this->load->view('swan/swan_menu',$menu);	
+		$this->load->view('users/user_info',$marks);
+		$this->load->view('swan/swan_footer');		
+	}
 
 }

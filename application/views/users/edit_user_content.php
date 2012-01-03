@@ -27,7 +27,8 @@
 
 	<tr>
 		<td><?php echo form_label('Password:','password'); ?></td>
-		<td><?php echo form_input('password',"$item->password"); ?></td>
+		<td><input name='password' type='password'
+		 value="<?php echo $item->password; ?>"> </td>
 	</tr>
 
 	<tr>

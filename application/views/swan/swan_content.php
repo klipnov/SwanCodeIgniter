@@ -3,8 +3,10 @@
 		<p><?php echo $content; ?></p>
 		
 		<h3>Pages</h3>
-		<p>Pages is divided into two parts. The first is section and lessons.
-		   Sections is parts of theory101's site. Lessons are lessons of theory101.
+		<p>Pages is divided into two parts. The first is videos and lessons.
+		   Videos is where admin can embed video code from any popular video
+		   sites such as Youtube,Vimeo and Dailymotion. Lessons are lessons
+		   of theory101.
 		   Here you can preview the submitted content,update,add and remove.
 		</p>
 		
@@ -13,6 +15,6 @@
 		
 		<h3>Users</h3>
 		<p>You can add,remove and edit users from the database.
-		   You can give administrative power to users in this section.
+		   You can give administrative powers to users in this section.
 		</p>
 	</div>

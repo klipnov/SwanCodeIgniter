@@ -27,7 +27,22 @@ class Theory101_logged extends CI_Controller {
 		
 		$data['total_quiz'] = $this->Pages_model->count_lessons();
 		$data['message'] = $this->Messages_model->get_admin_message();
+		$unread_num = $this->Messages_model->unread_messages($this->session->userdata('username'));
+		//$data['unread_messages'] = "";
+		$data['weak_message'] = "";
 		
+		if($unread_num > 1)
+		{
+		$data['unread_messages'] =  "You have $unread_num unread messages from admin";
+		}
+		else if ($unread_num == 1)
+		{
+		$data['unread_messages'] = "You have $unread_num unread message from admin";
+		}
+		else
+		{
+		$data['unread_messages'] = "";
+		}
 		/***TRACK****/
 		//get user last quiz
 		$data['last_quiz'] = $this->Quiz_model->get_last_quiz(
@@ -36,21 +51,44 @@ class Theory101_logged extends CI_Controller {
 		//give a user their rank based on:
 		//->highest percentage of each quiz taken by user divided by total number of quiz
 		$total=0;
+		$find_weak = 0;
+		$stop = FALSE;
 		
 		for($i=1;$i <= $data['total_quiz']; $i++)
 		{
 			$percentage = $this->Quiz_model->get_highest_percentage(
-												$this->session->userdata('id'),
-												$i);
+												$this->session->userdata
+												('id'),$i);
 			foreach($percentage as $item)
 			{
 				$number = $item->percentage;
+				
+				//find the weak chapter
+				if($stop == FALSE)
+				{
+					if($number < 70.00)
+					{
+					$find_weak = $i;
+					$stop = TRUE;
+					}
+				}
+					
 			}
 			
 			$total += $number . "<br>";
 		}
 		
+		if($find_weak > 0)
+		{
+		$data['weak_message'] =	"We recommend that you learn lesson $find_weak and take Quiz $find_weak again.";
+		}
+		
+		
+		
 		$rank_num = $total/$data['total_quiz'];
+		
+		//data for weak chapter
+		$data['weak'] = $find_weak;
 		
 		//give a rank according to the total percentage marks
 		$rank = "";
@@ -223,7 +261,7 @@ class Theory101_logged extends CI_Controller {
 		$data['content'] = $this->input->post('content');
 		$data['user_id'] = $this->input->post('user_id');
 		$data['username'] = $this->session->userdata('username');
-		$data['user_links'] = $this->Pages_model->display_user_lesson();
+
 		
 		$this->Pages_model->add_user_lesson($data);
 		
@@ -302,6 +340,8 @@ class Theory101_logged extends CI_Controller {
 							   display_a_user_message($username);
 		
 		$message['username'] = $username;
+		
+		$this->Messages_model->change_to_read($username);
 		
 		
 		$this->load->view('theory101/logged_header',$data);
