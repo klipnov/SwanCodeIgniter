@@ -120,7 +120,7 @@ class Pages_model extends CI_Model {
 	function update_user_lesson($id,$data)
 	{
 		$this->db->where('id',$id);
-		$this->db->update('lesson',$data);
+		$this->db->update('user_lesson',$data);
 	}
 	
 	//remove a user_lesson
@@ -136,6 +136,26 @@ class Pages_model extends CI_Model {
 		$query = $this->db->get('user_lesson');
 		
 		return $query->result();
+	}
+	
+	//return only approved user lesson
+	function display_approved_user_lesson()
+	{
+		$query = $this->db->get_where('user_lesson',array('approved'=>'yes'));
+		
+		return $query->result();
+	}
+	
+	function count_approved_lesson($id)
+	{
+		$this->db->select('*');
+		$this->db->where('user_id',$id);
+		$this->db->where('approved','yes');
+		$this->db->from('user_lesson');
+		
+		$approved_num = $this->db->count_all_results();
+
+		return $approved_num;
 	}
 	
 	//return a single user lesson information

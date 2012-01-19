@@ -30,6 +30,16 @@
 		<td><input name='password' type='password'
 		 value="<?php echo $item->password; ?>"> </td>
 	</tr>
+	
+	<tr>
+		<td>Admin:</td>
+		<td>
+		<select name="admin">
+			<option value="yes">Yes</option>
+			<option value="no">No</option>
+		</select>
+		</td>
+	</tr>
 
 	<tr>
 		<td><?php echo form_label('E-mail:','email'); ?></td>

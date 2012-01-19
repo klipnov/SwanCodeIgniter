@@ -5,7 +5,7 @@
 <h3>Add A New Lesson</h3>
 <br>
 
-<?php echo form_open('pages/post_lesson'); ?>
+<?php echo form_open('pages/add_lesson'); ?>
 
 <table id="addForm">
 	<tr>

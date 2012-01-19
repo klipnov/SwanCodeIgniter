@@ -23,21 +23,23 @@ class Theory101_logged extends CI_Controller {
 		$data['learnLinks'] = $this->Pages_model->display_lesson();
 		$data['username'] = $this->session->userdata('username');
 		$data['videoLinks'] = $this->Pages_model->display_video();
-		$data['user_links'] = $this->Pages_model->display_user_lesson();
+		$data['user_links'] = $this->Pages_model->display_approved_user_lesson();
 		
 		$data['total_quiz'] = $this->Pages_model->count_lessons();
 		$data['message'] = $this->Messages_model->get_admin_message();
 		$unread_num = $this->Messages_model->unread_messages($this->session->userdata('username'));
+		$approved = $this->Pages_model->count_approved_lesson($this->session->userdata('id'));
+		
 		//$data['unread_messages'] = "";
 		$data['weak_message'] = "";
 		
 		if($unread_num > 1)
 		{
-		$data['unread_messages'] =  "You have $unread_num unread messages from admin";
+		$data['unread_messages'] =  "You have $unread_num unread messages from admin.";
 		}
 		else if ($unread_num == 1)
 		{
-		$data['unread_messages'] = "You have $unread_num unread message from admin";
+		$data['unread_messages'] = "You have $unread_num unread message from admin.";
 		}
 		else
 		{
@@ -103,11 +105,15 @@ class Theory101_logged extends CI_Controller {
 		}
 		else if ($rank_num >= 40.00 && $rank_num <=70.00)
 		{
-			$rank = "You are an Intermediate now. Practice more and you'll awarded Master rank at total progress more than 70%.";
+			$rank = "You are an Intermediate now. Practice more and you'll awarded Master rank at total progress more than 70% and you have to post a lesson approved by an admin.";
 		}
-		else
+		else if($rank_num >= 70.00 && $approved == 0)
 		{
-			$rank = "You are now a Master. Congratulations, you can now post lessons and teach others.";
+			$rank = "You have to post a lesson to advance into the next level and it needs to be approved by an admin.";
+		}  
+		else if($rank_num >= 70.00 && $approved >= 1)
+		{
+			$rank = "You are now a Master. Congratulations, continue posting lessons to teach others.";
 		}  
 		
 		$data['rank'] = $rank;
@@ -115,7 +121,7 @@ class Theory101_logged extends CI_Controller {
 		
 		//enable users to post a lesson if they have master rank
 		
-		if($rank_num >= 70)
+		if($rank_num >= 40)
 		{
 			$data['post_enabled'] = TRUE;
 		}

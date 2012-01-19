@@ -65,7 +65,8 @@ class Users extends CI_Controller {
 		$data = array(
 				'username' => $this->input->post('username'),
 				'password' => $this->input->post('password'),
-				'email' => $this->input->post('email')
+				'email' => $this->input->post('email'),
+				'admin' => $this->input->post('admin')
 				);
 		
 		$this->load->model('Users_model');

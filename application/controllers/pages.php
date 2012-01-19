@@ -33,6 +33,7 @@ class Pages extends CI_Controller {
 		
 		$data['main_pages'] = $this->Pages_model->display_video();
 		$data['lesson'] = $this->Pages_model->display_lesson();
+		$data['user_lesson'] = $this->Pages_model->display_user_lesson();
 		
 		$this->load->view('swan/swan_header');
 		$this->load->view('swan/swan_menu',$data);
@@ -218,6 +219,49 @@ class Pages extends CI_Controller {
 		$data['link'] = $link;
 		
 		$this->load->view('swan/swan_confirm',$data);
+	}
+	
+	/***********************/
+	/** USER LESSONS PART **/
+	/***********************/
+	
+	public function user_lesson_review($id)
+	{
+		$this->load->model('Pages_model');
+		$this->load->model('Swan_model');
+		
+		$data['content'] = $this->Pages_model->display_a_user_lesson($id);
+		
+		$data['id'] = $id;
+		
+		$data['main_links'] = $this->Swan_model->links();
+		
+		$this->load->view('pages/pages_header');
+		$this->load->view('swan/swan_menu',$data);
+		$this->load->view('pages/user_lesson/user_lesson_review',$data);
+		$this->load->view('swan/swan_footer');
+	}
+	
+	public function approve_user_lesson()
+	{
+		$this->load->model('Pages_model');
+		
+		$id = $this->input->post('id');
+		$data['approved'] = $this->input->post('approved');
+		
+		$this->Pages_model->update_user_lesson($id,$data);
+		
+		$this->confirm('Success','User lesson approval has been stored','pages');
+	}
+	
+	public function remove_user_lesson($id)
+	{
+		$this->load->model('Pages_model');
+		$this->load->helper('url');
+		
+		$this->Pages_model->remove_user_lesson($id);
+		
+		$this->confirm('Removed','User lesson has been removed','pages');
 	}
 		
 }

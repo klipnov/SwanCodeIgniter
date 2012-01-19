@@ -13,10 +13,15 @@
 	</tr>	
 	
 	<?php foreach($content as $result): ?>
-	
 		<tr> 	
 			<td><?php echo $result->id; ?></td>
-			<td><?php echo $result->username; ?></td>
+			<td><?php echo $result->username; ?>
+			<?php if($result->admin == 'yes')
+			  {
+			  	echo "*";
+			  }
+		    ?> 
+			</td>
 			<td><?php for($i=0; $i<= strlen($result->password); $i++)
 					  {
 					    echo "*";					  
@@ -36,8 +41,10 @@
 	<?php endforeach; ?>
 	
 	</table>	
-	
-	<br>
+	<br/>
+	<font class='medium'>* after a username is an admin</font>
+	<br/>
+	<br/>
 	<?php echo anchor('users/display_add_form', 'Add a new User') ?>
 	
 </div>
